@@ -47,7 +47,7 @@ pnpm package        # release/CENTCOM-<version>-<arch>.dmg and .zip for this Mac
 pnpm release:mac    # both arm64 and x64
 ```
 
-Packaging is `electron-builder.config.mjs`. Everything Node needs is bundled into `dist-*` by esbuild, so the app ships no `node_modules`. The app is an ASAR archive with `dist-ui` and `dist-cli` unpacked beside it (the embedded server reads the UI from disk; the CLI runs on the system Node). Electron fuses turn off `RunAsNode`, `NODE_OPTIONS` and `--inspect`, turn on cookie encryption, ASAR integrity validation and ASAR-only loading. Release builds hide DevTools.
+Packaging is `electron-builder.config.mjs`. Everything Node needs is bundled into `dist-*` by esbuild, so the app ships no `node_modules`. The app is an ASAR archive with `dist-ui` and `dist-cli` unpacked beside it (the embedded server reads the UI from disk; the CLI runs on the system Node). Electron fuses turn off `RunAsNode`, `NODE_OPTIONS` and `--inspect`, and turn on ASAR integrity validation and ASAR-only loading. Cookie encryption stays off: the windows authenticate with an injected bearer and keep no cookies, and the encrypted store would put the app behind a Keychain prompt every time its signature changes. Release builds hide DevTools.
 
 ### Signing and notarization
 

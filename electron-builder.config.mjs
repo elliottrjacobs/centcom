@@ -49,7 +49,10 @@ export default {
     runAsNode: false,
     enableNodeOptionsEnvironmentVariable: false,
     enableNodeCliInspectArguments: false,
-    enableCookieEncryption: true,
+    // The app's windows authenticate with an injected bearer and keep no cookies, so encrypting the
+    // cookie store protects nothing; it would only make macOS stop the app at a Keychain prompt
+    // whenever its code signature changes (every ad hoc rebuild).
+    enableCookieEncryption: false,
     enableEmbeddedAsarIntegrityValidation: true,
     onlyLoadAppFromAsar: true,
     grantFileProtocolExtraPrivileges: false,
