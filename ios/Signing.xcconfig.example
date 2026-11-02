@@ -1,0 +1,6 @@
+// Copy to Signing.xcconfig (git-ignored) and fill in your own values.
+// Your Apple Developer Team ID: Xcode → Settings → Accounts, or developer.apple.com → Membership.
+DEVELOPMENT_TEAM = ABCDE12345
+
+// A bundle identifier you own. Only the official build may use the default one.
+// CENTCOM_BUNDLE_ID = com.example.centcom

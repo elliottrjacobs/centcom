@@ -1,0 +1,474 @@
+/* ───────── Buttons ───────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-raised);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  transition:
+    transform var(--d-press) var(--ease-out),
+    background-color var(--d-fast) ease,
+    border-color var(--d-fast) ease;
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.45;
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--text-on-accent);
+}
+.btn-primary[data-danger] {
+  background: var(--danger);
+}
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-2);
+}
+.btn-sm {
+  height: 24px;
+  padding: 0 8px;
+  font-size: var(--text-sm);
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-md);
+  color: var(--text-2);
+  flex-shrink: 0;
+  transition:
+    transform var(--d-press) var(--ease-out),
+    background-color var(--d-fast) ease,
+    color var(--d-fast) ease;
+}
+.icon-btn:active {
+  transform: scale(0.94);
+}
+.icon-btn[data-on='true'] {
+  background: var(--bg-active);
+  color: var(--text);
+}
+
+.filter-button { position: relative; width: 32px; height: 32px; }
+.filter-button:active { transform: scale(0.96); }
+.filter-button-count { position: absolute; top: -2px; right: -2px; min-width: 14px; height: 14px; padding: 0 2px; border-radius: var(--r-full); background: var(--text); color: var(--bg-panel); font-size: 10px; line-height: 14px; }
+@media (pointer: coarse) { .filter-button { width: 44px; height: 44px; } }
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover:not(:disabled) {
+    background: var(--bg-subtle);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+  }
+  .btn-primary[data-danger]:hover:not(:disabled) {
+    background: var(--danger);
+    filter: brightness(0.94);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+  .icon-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+}
+
+/* ───────── Inputs ───────── */
+.input,
+.textarea {
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-panel);
+  font-size: var(--text-base);
+  user-select: text;
+  -webkit-user-select: text;
+  transition:
+    border-color var(--d-fast) ease,
+    box-shadow var(--d-fast) ease;
+}
+.textarea {
+  height: auto;
+  padding: 8px 10px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-3);
+}
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+kbd {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ───────── Pills & chips ───────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  white-space: nowrap;
+  max-width: 180px;
+}
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+  /* A hairline keeps light avatars legible against the white panel. */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+/* Unassigned: a quiet dashed hairline, so an empty slot recedes next to real avatars. */
+.avatar[data-empty] {
+  background: transparent;
+  color: var(--text-4);
+  box-shadow: none;
+  border: 1px dashed var(--border-strong);
+}
+
+/* ───────── Segmented tabs (Linear's pill tabs) ───────── */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.tab {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-2);
+  /* Tabs are sometimes links (project tabs route by URL); they should never look like one. */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    background-color var(--d-fast) ease,
+    color var(--d-fast) ease;
+}
+.tab[aria-selected='true'] {
+  background: var(--bg-sunken);
+  border-color: var(--border);
+  color: var(--text);
+}
+.tab-count {
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover:not([aria-selected='true']) {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+}
+
+/* ───────── Popover & menu ───────── */
+.popover {
+  position: fixed;
+  z-index: 60;
+  background: var(--bg-raised);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-pop);
+  opacity: 0;
+  transform: scale(0.97);
+  /* Hidden until measured, so it never flashes at the wrong position. */
+  visibility: hidden;
+}
+.popover[data-placed] {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity var(--d-pop) var(--ease-out),
+    transform var(--d-pop) var(--ease-out);
+}
+.popover[data-instant] {
+  transition: none;
+}
+.popover-menu {
+  min-width: 200px;
+  max-width: 320px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  max-height: min(420px, 70vh);
+  outline: none;
+}
+.menu-search {
+  height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  font-size: var(--text-base);
+  outline: none;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.menu-search::placeholder {
+  color: var(--text-3);
+}
+.menu-list {
+  padding: 4px;
+  overflow-y: auto;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: var(--r-sm);
+  text-align: left;
+  font-size: var(--text-base);
+  color: var(--text);
+}
+/* No hover transition: the highlight must track the pointer/arrow keys instantly. */
+.menu-item[data-active='true'] {
+  background: var(--bg-hover);
+}
+.menu-item[data-danger] {
+  color: var(--danger);
+}
+.menu-item[data-danger][data-active='true'] {
+  background: var(--danger-soft);
+}
+.menu-item:disabled {
+  opacity: 0.4;
+}
+.menu-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  color: var(--text-2);
+  flex-shrink: 0;
+}
+.menu-item[data-danger] .menu-icon {
+  color: inherit;
+}
+.menu-label {
+  flex: 1;
+}
+.menu-check {
+  color: var(--text-2);
+  display: grid;
+}
+.menu-hint {
+  margin-left: auto;
+}
+.menu-sep {
+  height: 1px;
+  margin: 4px -4px;
+  background: var(--border);
+}
+.menu-empty {
+  padding: 10px 8px;
+  color: var(--text-3);
+  font-size: var(--text-sm);
+}
+
+/* ───────── Modal ───────── */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg-scrim);
+  opacity: 1;
+  transition: opacity var(--d-modal) var(--ease-out);
+  @starting-style {
+    opacity: 0;
+  }
+}
+.scrim[data-top] {
+  place-items: start center;
+  padding-top: 14vh;
+}
+.modal {
+  max-width: 100%;
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-modal);
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity var(--d-modal) var(--ease-out),
+    transform var(--d-modal) var(--ease-out);
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+/* Keyboard-summoned layers (command palette) appear with no animation at all. */
+.scrim[data-instant],
+.modal[data-instant] {
+  transition: none;
+}
+
+.dialog {
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+}
+.dialog-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+.dialog-body {
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ───────── Toasts ───────── */
+.toasts {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--r-lg);
+  background: var(--text);
+  color: var(--bg-panel);
+  font-size: var(--text-base);
+  box-shadow: var(--shadow-pop);
+  max-width: 380px;
+  opacity: 1;
+  transform: translateY(0);
+  /* Transitions, not keyframes: toasts can stack quickly and must retarget. */
+  transition:
+    opacity 260ms var(--ease-out),
+    transform 260ms var(--ease-out);
+  @starting-style {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.toast[data-tone='error'] {
+  background: var(--danger);
+  color: #fff;
+}
+.toast-action {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: inherit;
+}
+
+/* ───────── Empty states ───────── */
+.empty {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: var(--s-16) var(--s-6);
+  text-align: center;
+  color: var(--text-3);
+  min-height: 320px;
+}
+.empty-icon {
+  color: var(--text-4);
+  margin-bottom: 4px;
+}
+.empty-title {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text);
+}
+.empty-body {
+  max-width: 380px;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+.empty .btn {
+  margin-top: 8px;
+}

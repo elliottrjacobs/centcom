@@ -1,0 +1,72 @@
+{
+  "name": "centcom",
+  "productName": "CENTCOM",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A shared project and task tracker for humans and agents.",
+  "homepage": "https://github.com/elliottrjacobs/centcom",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elliottrjacobs/centcom.git"
+  },
+  "bugs": "https://github.com/elliottrjacobs/centcom/issues",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "bin": {
+    "centcom": "dist-cli/centcom.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.10.0",
+  "scripts": {
+    "dev": "concurrently -k -n server,ui -c gray,blue \"pnpm dev:server\" \"pnpm dev:ui\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:ui": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm build:ui && pnpm build:node",
+    "build:ui": "vite build",
+    "build:node": "node scripts/build-node.mjs",
+    "start": "node dist-server/index.cjs",
+    "app": "pnpm build && electron .",
+    "package": "pnpm build && electron-builder --mac --config electron-builder.config.mjs --publish never",
+    "test": "tsx --test server/*.test.ts src/**/*.test.ts scripts/*.test.mjs",
+    "build:ios-editor": "node scripts/build-ios-editor.mjs",
+    "build:ios-demo": "tsx scripts/make-ios-demo.ts",
+    "release:mac": "pnpm build && electron-builder --mac --arm64 --x64 --config electron-builder.config.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.5",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "chokidar": "^5.0.0",
+    "electron-updater": "^6.8.12",
+    "gray-matter": "^4.0.3",
+    "hono": "^4.13.14",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tiptap/extension-image": "^3.31.3",
+    "@tiptap/extension-list": "^3.31.3",
+    "@tiptap/extension-table": "^3.31.3",
+    "@tiptap/extensions": "^3.31.3",
+    "@tiptap/markdown": "^3.31.3",
+    "@tiptap/pm": "^3.31.3",
+    "@tiptap/react": "^3.31.3",
+    "@tiptap/starter-kit": "^3.31.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^9.2.5",
+    "electron": "~44.10.0",
+    "electron-builder": "~26.18.1",
+    "esbuild": "^0.28.2",
+    "lucide-react": "^1.50.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsx": "^4.23.13",
+    "typescript": "~5.9.0",
+    "vite": "^8.3.5"
+  }
+}

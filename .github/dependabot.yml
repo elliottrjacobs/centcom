@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Match pnpm's minimumReleaseAge: let a new release sit for three days before proposing it.
+    cooldown:
+      default-days: 3
+    open-pull-requests-limit: 10
+    groups:
+      tiptap:
+        patterns: ['@tiptap/*']
+      react:
+        patterns: ['react', 'react-dom', '@types/react', '@types/react-dom']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 3

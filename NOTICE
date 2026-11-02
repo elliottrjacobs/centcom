@@ -1,0 +1,18 @@
+CENTCOM
+
+The source code in this repository is licensed under the MIT License (see LICENSE).
+
+The CENTCOM name and the CENTCOM logo are not licensed under the MIT License or any
+other license. This covers the artwork and every image derived from it, including:
+
+  build/centcom-logo.jpg, build/icon.png, build/icon.icns, build/icon.svg
+  public/apple-touch-icon.png, public/favicon-32.png, public/favicon-192.png
+  src/assets/centcom-logo.png
+  ios/CENTCOM/Assets.xcassets/AppIcon.appiconset and CentcomLogo.imageset
+
+You may use the name to refer to this project. If you distribute a build of a modified
+version, give it a different name and icon, and a bundle identifier you own, so nobody
+mistakes it for the official app.
+
+Third-party packages are distributed under their own licenses, listed in node_modules
+after `pnpm install`.

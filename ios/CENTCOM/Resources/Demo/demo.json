@@ -1,0 +1,2112 @@
+{
+ "info": {
+  "name": "centcom",
+  "version": "0.1.0",
+  "vault": "/Users/sam/CENTCOM",
+  "port": 64438,
+  "host": "127.0.0.1",
+  "remote": false,
+  "links": [],
+  "user": {
+   "id": "sam",
+   "name": "Sam"
+  }
+ },
+ "projects": [
+  {
+   "slug": "CENTCOM",
+   "name": "CENTCOM",
+   "key": "CEN",
+   "status": "active",
+   "summary": "Projects and tasks, shared across your devices and agents.",
+   "color": "#95A2B3",
+   "icon": "Command",
+   "lead": "sam",
+   "path": "Projects/CENTCOM",
+   "body": "One place to plan projects, capture tasks, and follow work across your devices and agents.",
+   "counts": {
+    "backlog": 0,
+    "todo": 3,
+    "in_progress": 0,
+    "in_review": 0,
+    "done": 0,
+    "canceled": 0
+   },
+   "created": 1793623777393,
+   "updated": 1793623777393
+  },
+  {
+   "slug": "Mobile app",
+   "name": "Mobile app",
+   "key": "APP",
+   "status": "active",
+   "summary": "iPhone companion: offline reading and faster capture.",
+   "color": "#BB87FC",
+   "icon": "Smartphone",
+   "lead": null,
+   "path": "Projects/Mobile app",
+   "body": "",
+   "counts": {
+    "backlog": 0,
+    "todo": 1,
+    "in_progress": 1,
+    "in_review": 0,
+    "done": 1,
+    "canceled": 0
+   },
+   "created": 1793623777475,
+   "updated": 1793623777475
+  },
+  {
+   "slug": "Website relaunch",
+   "name": "Website relaunch",
+   "key": "WEB",
+   "status": "active",
+   "summary": "New marketing site and docs, live before the spring launch.",
+   "color": "#26B5CE",
+   "icon": "Globe",
+   "lead": null,
+   "path": "Projects/Website relaunch",
+   "body": "",
+   "counts": {
+    "backlog": 1,
+    "todo": 1,
+    "in_progress": 1,
+    "in_review": 1,
+    "done": 0,
+    "canceled": 0
+   },
+   "created": 1793623777465,
+   "updated": 1793623777465
+  }
+ ],
+ "labels": [
+  {
+   "id": "5039c120-d0cf-44d2-be69-3c03b6aad7f9",
+   "project": "Website relaunch",
+   "name": "copy",
+   "color": "#F2994A",
+   "deleted": false
+  },
+  {
+   "id": "e3d6e7e5-ff92-447c-acbe-30abfc661e47",
+   "project": "Website relaunch",
+   "name": "design",
+   "color": "#BB87FC",
+   "deleted": false
+  }
+ ],
+ "activity": [
+  {
+   "agent": "research-bot",
+   "type": "doc.updated",
+   "path": "Agents/research-bot.md",
+   "project": null,
+   "subject": "Research Bot",
+   "id": "mvz9ac8u-a230d54410",
+   "ts": 1793623777662
+  },
+  {
+   "agent": "design-bot",
+   "type": "agent.instructions_changed",
+   "target": "design-bot",
+   "path": "Agents/design-bot.md",
+   "project": null,
+   "subject": "Design Bot",
+   "changes": {
+    "description": [
+     0,
+     37
+    ],
+    "instructions": [
+     0,
+     65
+    ]
+   },
+   "id": "mvz9ac8h-fdc591eff3",
+   "ts": 1793623777649
+  },
+  {
+   "agent": "research-bot",
+   "type": "agent.instructions_changed",
+   "target": "research-bot",
+   "path": "Agents/research-bot.md",
+   "project": null,
+   "subject": "Research Bot",
+   "changes": {
+    "description": [
+     0,
+     49
+    ],
+    "instructions": [
+     0,
+     120
+    ],
+    "skills": [
+     0,
+     1
+    ]
+   },
+   "id": "mvz9ac85-fb010177c4",
+   "ts": 1793623777637
+  },
+  {
+   "agent": "research-bot",
+   "type": "doc.created",
+   "path": "Projects/Website relaunch/Library/Launch plan.md",
+   "project": "Website relaunch",
+   "subject": "Launch plan",
+   "id": "mvz9ac7z-41b1d86540",
+   "ts": 1793623777631
+  },
+  {
+   "device": "Laptop",
+   "agent": "codex",
+   "type": "ticket.comment",
+   "ticket": "APP-1",
+   "path": "Projects/Mobile app/Tickets/APP-1.md",
+   "project": "Mobile app",
+   "subject": "Cache the last 50 tasks for offline reading",
+   "body": "Storing snapshots in the app container. Tests pass; opening a PR next.",
+   "id": "mvz9ac7s-6de31ac952",
+   "ts": 1793623777624
+  },
+  {
+   "device": "iPhone",
+   "agent": "sam",
+   "type": "ticket.comment",
+   "ticket": "WEB-1",
+   "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+   "project": "Website relaunch",
+   "subject": "Write the pricing page copy",
+   "body": "Looks good. Shorten the Pro description to one line.",
+   "id": "mvz9ac7p-7570205efe",
+   "ts": 1793623777621
+  },
+  {
+   "device": "Cloud",
+   "agent": "research-bot",
+   "type": "ticket.comment",
+   "ticket": "WEB-1",
+   "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+   "project": "Website relaunch",
+   "subject": "Write the pricing page copy",
+   "body": "Drafted all three plans. The comparison table is in the Library: *Launch plan*.",
+   "id": "mvz9ac7o-9b234c217c",
+   "ts": 1793623777620
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "INB-1",
+   "path": "Inbox/INB-1.md",
+   "project": null,
+   "subject": "Renew the domain",
+   "ts": 1793623777608,
+   "id": "mvz9ac7c-94ed4e9efb"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "APP-3",
+   "path": "Projects/Mobile app/Tickets/APP-3.md",
+   "project": "Mobile app",
+   "subject": "App icon in dark mode",
+   "ts": 1793623777593,
+   "id": "mvz9ac6x-b52067d6f5"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "APP-2",
+   "path": "Projects/Mobile app/Tickets/APP-2.md",
+   "project": "Mobile app",
+   "subject": "Share sheet: capture a link as a task",
+   "ts": 1793623777579,
+   "id": "mvz9ac6j-e01d2c173a"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "APP-1",
+   "path": "Projects/Mobile app/Tickets/APP-1.md",
+   "project": "Mobile app",
+   "subject": "Cache the last 50 tasks for offline reading",
+   "ts": 1793623777564,
+   "id": "mvz9ac64-c903572bac"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "WEB-4",
+   "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+   "project": "Website relaunch",
+   "subject": "Accessibility pass on the navigation",
+   "ts": 1793623777549,
+   "id": "mvz9ac5p-824a48bd42"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "WEB-3",
+   "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+   "project": "Website relaunch",
+   "subject": "Redirect the old docs URLs",
+   "ts": 1793623777534,
+   "id": "mvz9ac5a-7443374313"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "WEB-2",
+   "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+   "project": "Website relaunch",
+   "subject": "Choose the hero illustration",
+   "ts": 1793623777520,
+   "id": "mvz9ac4w-9e6aea5be0"
+  },
+  {
+   "device": "Demo",
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "WEB-1",
+   "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+   "project": "Website relaunch",
+   "subject": "Write the pricing page copy",
+   "ts": 1793623777506,
+   "id": "mvz9ac4i-4e8769615c"
+  },
+  {
+   "agent": "sam",
+   "type": "doc.updated",
+   "path": "Projects/Website relaunch/Labels.json",
+   "project": "Website relaunch",
+   "subject": "Label created: design",
+   "id": "mvz9ac4g-e23037682e",
+   "ts": 1793623777504
+  },
+  {
+   "agent": "sam",
+   "type": "doc.updated",
+   "path": "Projects/Website relaunch/Labels.json",
+   "project": "Website relaunch",
+   "subject": "Label created: copy",
+   "id": "mvz9ac45-0c6dbb8bd7",
+   "ts": 1793623777493
+  },
+  {
+   "agent": "sam",
+   "type": "doc.created",
+   "path": "Projects/Mobile app/project.md",
+   "project": "Mobile app",
+   "subject": "Mobile app",
+   "id": "mvz9ac3v-7ce91c830e",
+   "ts": 1793623777483
+  },
+  {
+   "agent": "sam",
+   "type": "doc.created",
+   "path": "Projects/Website relaunch/project.md",
+   "project": "Website relaunch",
+   "subject": "Website relaunch",
+   "id": "mvz9ac3i-281d2f3042",
+   "ts": 1793623777470
+  },
+  {
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "CEN-3",
+   "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+   "project": "CENTCOM",
+   "subject": "Connect the iOS companion",
+   "ts": 1793623777429,
+   "id": "mvz9ac2d-922998f6d7"
+  },
+  {
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "CEN-2",
+   "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+   "project": "CENTCOM",
+   "subject": "Set up remote access",
+   "ts": 1793623777417,
+   "id": "mvz9ac21-ceb4a15d7a"
+  },
+  {
+   "agent": "sam",
+   "type": "ticket.created",
+   "ticket": "CEN-1",
+   "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+   "project": "CENTCOM",
+   "subject": "Connect your first agent",
+   "ts": 1793623777402,
+   "id": "mvz9ac1m-3904842f6a"
+  },
+  {
+   "agent": "sam",
+   "type": "doc.created",
+   "path": "Projects/CENTCOM/project.md",
+   "project": "CENTCOM",
+   "subject": "CENTCOM",
+   "id": "mvz9ac1k-5e4a2a041b",
+   "ts": 1793623777400
+  }
+ ],
+ "agent-profiles": [
+  {
+   "id": "design-bot",
+   "name": "Design Bot",
+   "source": "self-reported",
+   "description": "Proposes layouts and checks contrast.",
+   "updated": 1793623777641,
+   "updatedBy": "design-bot"
+  },
+  {
+   "id": "research-bot",
+   "name": "Research Bot",
+   "source": "self-reported",
+   "description": "Reads sources, drafts copy, and cites everything.",
+   "updated": 1793623777651,
+   "updatedBy": "research-bot"
+  }
+ ],
+ "tickets": [
+  {
+   "id": "INB-1",
+   "path": "Inbox/INB-1.md",
+   "title": "Renew the domain",
+   "status": "todo",
+   "priority": 2,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": null,
+   "due": "2026-12-01",
+   "parent": null,
+   "body": "",
+   "created": 1793623777608,
+   "updated": 1793623777608,
+   "previousIds": []
+  },
+  {
+   "id": "APP-3",
+   "path": "Projects/Mobile app/Tickets/APP-3.md",
+   "title": "App icon in dark mode",
+   "status": "done",
+   "priority": 4,
+   "agent": "sam",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777593,
+   "updated": 1793623777593,
+   "previousIds": []
+  },
+  {
+   "id": "APP-2",
+   "path": "Projects/Mobile app/Tickets/APP-2.md",
+   "title": "Share sheet: capture a link as a task",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777579,
+   "updated": 1793623777579,
+   "previousIds": []
+  },
+  {
+   "id": "APP-1",
+   "path": "Projects/Mobile app/Tickets/APP-1.md",
+   "title": "Cache the last 50 tasks for offline reading",
+   "status": "in_progress",
+   "priority": 1,
+   "agent": "codex",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "Read-only offline mode. Writes still need a connection.",
+   "created": 1793623777564,
+   "updated": 1793623777564,
+   "previousIds": []
+  },
+  {
+   "id": "WEB-4",
+   "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+   "title": "Accessibility pass on the navigation",
+   "status": "backlog",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777549,
+   "updated": 1793623777549,
+   "previousIds": []
+  },
+  {
+   "id": "WEB-3",
+   "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+   "title": "Redirect the old docs URLs",
+   "status": "todo",
+   "priority": 2,
+   "agent": "claude-code",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777534,
+   "updated": 1793623777534,
+   "previousIds": []
+  },
+  {
+   "id": "WEB-2",
+   "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+   "title": "Choose the hero illustration",
+   "status": "in_review",
+   "priority": 3,
+   "agent": "sam",
+   "createdBy": "sam",
+   "labels": [
+    "design"
+   ],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777520,
+   "updated": 1793623777520,
+   "previousIds": []
+  },
+  {
+   "id": "WEB-1",
+   "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+   "title": "Write the pricing page copy",
+   "status": "in_progress",
+   "priority": 2,
+   "agent": "research-bot",
+   "createdBy": "sam",
+   "labels": [
+    "copy"
+   ],
+   "project": "Website relaunch",
+   "due": "2026-11-20",
+   "parent": null,
+   "body": "Three plans, one comparison table. Keep it under 300 words.",
+   "created": 1793623777506,
+   "updated": 1793623777506,
+   "previousIds": []
+  },
+  {
+   "id": "CEN-3",
+   "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+   "title": "Connect the iOS companion",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Enter the shared backend URL and token in the iOS app. Create a task on the phone and verify it appears on desktop.",
+   "created": 1793623777429,
+   "updated": 1793623777429,
+   "previousIds": []
+  },
+  {
+   "id": "CEN-2",
+   "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+   "title": "Set up remote access",
+   "status": "todo",
+   "priority": 2,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Put the server behind private HTTPS (for example Tailscale Serve, Cloudflare Tunnel, or your own reverse proxy) and add its https:// origin to remoteOrigin. Verify that remote requests without a token are refused.",
+   "created": 1793623777417,
+   "updated": 1793623777417,
+   "previousIds": []
+  },
+  {
+   "id": "CEN-1",
+   "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+   "title": "Connect your first agent",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Connect a CLI or MCP client and create, claim, comment on and complete a task.",
+   "created": 1793623777402,
+   "updated": 1793623777402,
+   "previousIds": []
+  }
+ ],
+ "tickets/INB-1": {
+  "ticket": {
+   "id": "INB-1",
+   "path": "Inbox/INB-1.md",
+   "title": "Renew the domain",
+   "status": "todo",
+   "priority": 2,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": null,
+   "due": "2026-12-01",
+   "parent": null,
+   "body": "",
+   "created": 1793623777608,
+   "updated": 1793623777608,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "INB-1",
+    "path": "Inbox/INB-1.md",
+    "project": null,
+    "subject": "Renew the domain",
+    "ts": 1793623777608,
+    "id": "mvz9ac7c-94ed4e9efb"
+   }
+  ],
+  "children": []
+ },
+ "tickets/APP-3": {
+  "ticket": {
+   "id": "APP-3",
+   "path": "Projects/Mobile app/Tickets/APP-3.md",
+   "title": "App icon in dark mode",
+   "status": "done",
+   "priority": 4,
+   "agent": "sam",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777593,
+   "updated": 1793623777593,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-3",
+    "path": "Projects/Mobile app/Tickets/APP-3.md",
+    "project": "Mobile app",
+    "subject": "App icon in dark mode",
+    "ts": 1793623777593,
+    "id": "mvz9ac6x-b52067d6f5"
+   }
+  ],
+  "children": []
+ },
+ "tickets/APP-2": {
+  "ticket": {
+   "id": "APP-2",
+   "path": "Projects/Mobile app/Tickets/APP-2.md",
+   "title": "Share sheet: capture a link as a task",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777579,
+   "updated": 1793623777579,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-2",
+    "path": "Projects/Mobile app/Tickets/APP-2.md",
+    "project": "Mobile app",
+    "subject": "Share sheet: capture a link as a task",
+    "ts": 1793623777579,
+    "id": "mvz9ac6j-e01d2c173a"
+   }
+  ],
+  "children": []
+ },
+ "tickets/APP-1": {
+  "ticket": {
+   "id": "APP-1",
+   "path": "Projects/Mobile app/Tickets/APP-1.md",
+   "title": "Cache the last 50 tasks for offline reading",
+   "status": "in_progress",
+   "priority": 1,
+   "agent": "codex",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Mobile app",
+   "due": null,
+   "parent": null,
+   "body": "Read-only offline mode. Writes still need a connection.",
+   "created": 1793623777564,
+   "updated": 1793623777564,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-1",
+    "path": "Projects/Mobile app/Tickets/APP-1.md",
+    "project": "Mobile app",
+    "subject": "Cache the last 50 tasks for offline reading",
+    "ts": 1793623777564,
+    "id": "mvz9ac64-c903572bac"
+   },
+   {
+    "device": "Laptop",
+    "agent": "codex",
+    "type": "ticket.comment",
+    "ticket": "APP-1",
+    "path": "Projects/Mobile app/Tickets/APP-1.md",
+    "project": "Mobile app",
+    "subject": "Cache the last 50 tasks for offline reading",
+    "body": "Storing snapshots in the app container. Tests pass; opening a PR next.",
+    "id": "mvz9ac7s-6de31ac952",
+    "ts": 1793623777624
+   }
+  ],
+  "children": []
+ },
+ "tickets/WEB-4": {
+  "ticket": {
+   "id": "WEB-4",
+   "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+   "title": "Accessibility pass on the navigation",
+   "status": "backlog",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777549,
+   "updated": 1793623777549,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-4",
+    "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+    "project": "Website relaunch",
+    "subject": "Accessibility pass on the navigation",
+    "ts": 1793623777549,
+    "id": "mvz9ac5p-824a48bd42"
+   }
+  ],
+  "children": []
+ },
+ "tickets/WEB-3": {
+  "ticket": {
+   "id": "WEB-3",
+   "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+   "title": "Redirect the old docs URLs",
+   "status": "todo",
+   "priority": 2,
+   "agent": "claude-code",
+   "createdBy": "sam",
+   "labels": [],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777534,
+   "updated": 1793623777534,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-3",
+    "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+    "project": "Website relaunch",
+    "subject": "Redirect the old docs URLs",
+    "ts": 1793623777534,
+    "id": "mvz9ac5a-7443374313"
+   }
+  ],
+  "children": []
+ },
+ "tickets/WEB-2": {
+  "ticket": {
+   "id": "WEB-2",
+   "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+   "title": "Choose the hero illustration",
+   "status": "in_review",
+   "priority": 3,
+   "agent": "sam",
+   "createdBy": "sam",
+   "labels": [
+    "design"
+   ],
+   "project": "Website relaunch",
+   "due": null,
+   "parent": null,
+   "body": "",
+   "created": 1793623777520,
+   "updated": 1793623777520,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-2",
+    "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+    "project": "Website relaunch",
+    "subject": "Choose the hero illustration",
+    "ts": 1793623777520,
+    "id": "mvz9ac4w-9e6aea5be0"
+   }
+  ],
+  "children": []
+ },
+ "tickets/WEB-1": {
+  "ticket": {
+   "id": "WEB-1",
+   "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+   "title": "Write the pricing page copy",
+   "status": "in_progress",
+   "priority": 2,
+   "agent": "research-bot",
+   "createdBy": "sam",
+   "labels": [
+    "copy"
+   ],
+   "project": "Website relaunch",
+   "due": "2026-11-20",
+   "parent": null,
+   "body": "Three plans, one comparison table. Keep it under 300 words.",
+   "created": 1793623777506,
+   "updated": 1793623777506,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "ts": 1793623777506,
+    "id": "mvz9ac4i-4e8769615c"
+   },
+   {
+    "device": "Cloud",
+    "agent": "research-bot",
+    "type": "ticket.comment",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "body": "Drafted all three plans. The comparison table is in the Library: *Launch plan*.",
+    "id": "mvz9ac7o-9b234c217c",
+    "ts": 1793623777620
+   },
+   {
+    "device": "iPhone",
+    "agent": "sam",
+    "type": "ticket.comment",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "body": "Looks good. Shorten the Pro description to one line.",
+    "id": "mvz9ac7p-7570205efe",
+    "ts": 1793623777621
+   }
+  ],
+  "children": []
+ },
+ "tickets/CEN-3": {
+  "ticket": {
+   "id": "CEN-3",
+   "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+   "title": "Connect the iOS companion",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Enter the shared backend URL and token in the iOS app. Create a task on the phone and verify it appears on desktop.",
+   "created": 1793623777429,
+   "updated": 1793623777429,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-3",
+    "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+    "project": "CENTCOM",
+    "subject": "Connect the iOS companion",
+    "ts": 1793623777429,
+    "id": "mvz9ac2d-922998f6d7"
+   }
+  ],
+  "children": []
+ },
+ "tickets/CEN-2": {
+  "ticket": {
+   "id": "CEN-2",
+   "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+   "title": "Set up remote access",
+   "status": "todo",
+   "priority": 2,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Put the server behind private HTTPS (for example Tailscale Serve, Cloudflare Tunnel, or your own reverse proxy) and add its https:// origin to remoteOrigin. Verify that remote requests without a token are refused.",
+   "created": 1793623777417,
+   "updated": 1793623777417,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-2",
+    "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+    "project": "CENTCOM",
+    "subject": "Set up remote access",
+    "ts": 1793623777417,
+    "id": "mvz9ac21-ceb4a15d7a"
+   }
+  ],
+  "children": []
+ },
+ "tickets/CEN-1": {
+  "ticket": {
+   "id": "CEN-1",
+   "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+   "title": "Connect your first agent",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "createdBy": "sam",
+   "labels": [],
+   "project": "CENTCOM",
+   "due": null,
+   "parent": null,
+   "body": "Connect a CLI or MCP client and create, claim, comment on and complete a task.",
+   "created": 1793623777402,
+   "updated": 1793623777402,
+   "previousIds": []
+  },
+  "activity": [
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-1",
+    "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+    "project": "CENTCOM",
+    "subject": "Connect your first agent",
+    "ts": 1793623777402,
+    "id": "mvz9ac1m-3904842f6a"
+   }
+  ],
+  "children": []
+ },
+ "agents": [
+  {
+   "id": "sam",
+   "name": "Sam",
+   "kind": "human",
+   "color": "#5E6AD2",
+   "lastSeen": 1793623777621,
+   "showInDirectory": false
+  },
+  {
+   "id": "chatgpt",
+   "name": "ChatGPT",
+   "kind": "agent",
+   "color": "#0F9D8F",
+   "lastSeen": null,
+   "showInDirectory": false
+  },
+  {
+   "id": "claude-code",
+   "name": "Claude Code",
+   "kind": "agent",
+   "color": "#F2994A",
+   "lastSeen": null,
+   "showInDirectory": false
+  },
+  {
+   "id": "codex",
+   "name": "Codex",
+   "kind": "agent",
+   "color": "#4CB782",
+   "lastSeen": 1793623777624,
+   "showInDirectory": false
+  },
+  {
+   "id": "cursor",
+   "name": "Cursor",
+   "kind": "agent",
+   "color": "#26B5CE",
+   "lastSeen": null,
+   "showInDirectory": false
+  },
+  {
+   "id": "design-bot",
+   "name": "Design Bot",
+   "kind": "agent",
+   "color": "#26B5CE",
+   "lastSeen": 1793623777649,
+   "showInDirectory": true
+  },
+  {
+   "id": "grok",
+   "name": "Grok",
+   "kind": "agent",
+   "color": "#95A2B3",
+   "lastSeen": null,
+   "showInDirectory": false
+  },
+  {
+   "id": "research-bot",
+   "name": "Research Bot",
+   "kind": "agent",
+   "color": "#95A2B3",
+   "lastSeen": 1793623777662,
+   "showInDirectory": true
+  }
+ ],
+ "agents/sam/home": {
+  "agent": {
+   "id": "sam",
+   "name": "Sam",
+   "kind": "human",
+   "color": "#5E6AD2",
+   "lastSeen": 1793623777621
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": [
+   {
+    "device": "iPhone",
+    "agent": "sam",
+    "type": "ticket.comment",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "body": "Looks good. Shorten the Pro description to one line.",
+    "id": "mvz9ac7p-7570205efe",
+    "ts": 1793623777621
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "INB-1",
+    "path": "Inbox/INB-1.md",
+    "project": null,
+    "subject": "Renew the domain",
+    "ts": 1793623777608,
+    "id": "mvz9ac7c-94ed4e9efb"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-3",
+    "path": "Projects/Mobile app/Tickets/APP-3.md",
+    "project": "Mobile app",
+    "subject": "App icon in dark mode",
+    "ts": 1793623777593,
+    "id": "mvz9ac6x-b52067d6f5"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-2",
+    "path": "Projects/Mobile app/Tickets/APP-2.md",
+    "project": "Mobile app",
+    "subject": "Share sheet: capture a link as a task",
+    "ts": 1793623777579,
+    "id": "mvz9ac6j-e01d2c173a"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "APP-1",
+    "path": "Projects/Mobile app/Tickets/APP-1.md",
+    "project": "Mobile app",
+    "subject": "Cache the last 50 tasks for offline reading",
+    "ts": 1793623777564,
+    "id": "mvz9ac64-c903572bac"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-4",
+    "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+    "project": "Website relaunch",
+    "subject": "Accessibility pass on the navigation",
+    "ts": 1793623777549,
+    "id": "mvz9ac5p-824a48bd42"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-3",
+    "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+    "project": "Website relaunch",
+    "subject": "Redirect the old docs URLs",
+    "ts": 1793623777534,
+    "id": "mvz9ac5a-7443374313"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-2",
+    "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+    "project": "Website relaunch",
+    "subject": "Choose the hero illustration",
+    "ts": 1793623777520,
+    "id": "mvz9ac4w-9e6aea5be0"
+   },
+   {
+    "device": "Demo",
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "ts": 1793623777506,
+    "id": "mvz9ac4i-4e8769615c"
+   },
+   {
+    "agent": "sam",
+    "type": "doc.updated",
+    "path": "Projects/Website relaunch/Labels.json",
+    "project": "Website relaunch",
+    "subject": "Label created: design",
+    "id": "mvz9ac4g-e23037682e",
+    "ts": 1793623777504
+   },
+   {
+    "agent": "sam",
+    "type": "doc.updated",
+    "path": "Projects/Website relaunch/Labels.json",
+    "project": "Website relaunch",
+    "subject": "Label created: copy",
+    "id": "mvz9ac45-0c6dbb8bd7",
+    "ts": 1793623777493
+   },
+   {
+    "agent": "sam",
+    "type": "doc.created",
+    "path": "Projects/Mobile app/project.md",
+    "project": "Mobile app",
+    "subject": "Mobile app",
+    "id": "mvz9ac3v-7ce91c830e",
+    "ts": 1793623777483
+   },
+   {
+    "agent": "sam",
+    "type": "doc.created",
+    "path": "Projects/Website relaunch/project.md",
+    "project": "Website relaunch",
+    "subject": "Website relaunch",
+    "id": "mvz9ac3i-281d2f3042",
+    "ts": 1793623777470
+   },
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-3",
+    "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+    "project": "CENTCOM",
+    "subject": "Connect the iOS companion",
+    "ts": 1793623777429,
+    "id": "mvz9ac2d-922998f6d7"
+   },
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-2",
+    "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+    "project": "CENTCOM",
+    "subject": "Set up remote access",
+    "ts": 1793623777417,
+    "id": "mvz9ac21-ceb4a15d7a"
+   },
+   {
+    "agent": "sam",
+    "type": "ticket.created",
+    "ticket": "CEN-1",
+    "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+    "project": "CENTCOM",
+    "subject": "Connect your first agent",
+    "ts": 1793623777402,
+    "id": "mvz9ac1m-3904842f6a"
+   },
+   {
+    "agent": "sam",
+    "type": "doc.created",
+    "path": "Projects/CENTCOM/project.md",
+    "project": "CENTCOM",
+    "subject": "CENTCOM",
+    "id": "mvz9ac1k-5e4a2a041b",
+    "ts": 1793623777400
+   }
+  ]
+ },
+ "agents/chatgpt/home": {
+  "agent": {
+   "id": "chatgpt",
+   "name": "ChatGPT",
+   "kind": "agent",
+   "color": "#0F9D8F",
+   "lastSeen": null
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": []
+ },
+ "agents/claude-code/home": {
+  "agent": {
+   "id": "claude-code",
+   "name": "Claude Code",
+   "kind": "agent",
+   "color": "#F2994A",
+   "lastSeen": null
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": []
+ },
+ "agents/codex/home": {
+  "agent": {
+   "id": "codex",
+   "name": "Codex",
+   "kind": "agent",
+   "color": "#4CB782",
+   "lastSeen": 1793623777624
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": [
+   {
+    "device": "Laptop",
+    "agent": "codex",
+    "type": "ticket.comment",
+    "ticket": "APP-1",
+    "path": "Projects/Mobile app/Tickets/APP-1.md",
+    "project": "Mobile app",
+    "subject": "Cache the last 50 tasks for offline reading",
+    "body": "Storing snapshots in the app container. Tests pass; opening a PR next.",
+    "id": "mvz9ac7s-6de31ac952",
+    "ts": 1793623777624
+   }
+  ]
+ },
+ "agents/cursor/home": {
+  "agent": {
+   "id": "cursor",
+   "name": "Cursor",
+   "kind": "agent",
+   "color": "#26B5CE",
+   "lastSeen": null
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": []
+ },
+ "agents/design-bot/home": {
+  "agent": {
+   "id": "design-bot",
+   "name": "Design Bot",
+   "kind": "agent",
+   "color": "#26B5CE",
+   "lastSeen": 1793623777649
+  },
+  "profile": {
+   "id": "design-bot",
+   "name": "Design Bot",
+   "source": "self-reported",
+   "description": "Proposes layouts and checks contrast.",
+   "instructions": "- Light mode first.\n- Check WCAG AA contrast on every color pair.",
+   "skills": [],
+   "deliverables": [],
+   "updated": 1793623777641,
+   "updatedBy": "design-bot",
+   "path": "Agents/design-bot.md"
+  },
+  "deliverables": [],
+  "activity": [
+   {
+    "agent": "design-bot",
+    "type": "agent.instructions_changed",
+    "target": "design-bot",
+    "path": "Agents/design-bot.md",
+    "project": null,
+    "subject": "Design Bot",
+    "changes": {
+     "description": [
+      0,
+      37
+     ],
+     "instructions": [
+      0,
+      65
+     ]
+    },
+    "id": "mvz9ac8h-fdc591eff3",
+    "ts": 1793623777649
+   }
+  ]
+ },
+ "agents/grok/home": {
+  "agent": {
+   "id": "grok",
+   "name": "Grok",
+   "kind": "agent",
+   "color": "#95A2B3",
+   "lastSeen": null
+  },
+  "profile": null,
+  "deliverables": [],
+  "activity": []
+ },
+ "agents/research-bot/home": {
+  "agent": {
+   "id": "research-bot",
+   "name": "Research Bot",
+   "kind": "agent",
+   "color": "#95A2B3",
+   "lastSeen": 1793623777662
+  },
+  "profile": {
+   "id": "research-bot",
+   "name": "Research Bot",
+   "source": "self-reported",
+   "description": "Reads sources, drafts copy, and cites everything.",
+   "instructions": "- Cite a source for every claim.\n- Draft in the Library, then link it from the ticket.\n- Ask before publishing anything.",
+   "skills": [
+    {
+     "name": "summarize",
+     "description": "Condense long sources into a page."
+    }
+   ],
+   "deliverables": [
+    {
+     "id": "3f2a38b00b82",
+     "title": "Launch plan",
+     "url": "Projects/Website relaunch/Library/Launch plan.md",
+     "kind": "doc",
+     "date": "2026-11-02",
+     "project": "Website relaunch",
+     "addedBy": "research-bot"
+    }
+   ],
+   "updated": 1793623777651,
+   "updatedBy": "research-bot",
+   "path": "Agents/research-bot.md"
+  },
+  "deliverables": [
+   {
+    "id": "3f2a38b00b82",
+    "title": "Launch plan",
+    "url": "Projects/Website relaunch/Library/Launch plan.md",
+    "kind": "doc",
+    "date": "2026-11-02",
+    "project": "Website relaunch",
+    "addedBy": "research-bot"
+   }
+  ],
+  "activity": [
+   {
+    "agent": "research-bot",
+    "type": "doc.updated",
+    "path": "Agents/research-bot.md",
+    "project": null,
+    "subject": "Research Bot",
+    "id": "mvz9ac8u-a230d54410",
+    "ts": 1793623777662
+   },
+   {
+    "agent": "research-bot",
+    "type": "agent.instructions_changed",
+    "target": "research-bot",
+    "path": "Agents/research-bot.md",
+    "project": null,
+    "subject": "Research Bot",
+    "changes": {
+     "description": [
+      0,
+      49
+     ],
+     "instructions": [
+      0,
+      120
+     ],
+     "skills": [
+      0,
+      1
+     ]
+    },
+    "id": "mvz9ac85-fb010177c4",
+    "ts": 1793623777637
+   },
+   {
+    "agent": "research-bot",
+    "type": "doc.created",
+    "path": "Projects/Website relaunch/Library/Launch plan.md",
+    "project": "Website relaunch",
+    "subject": "Launch plan",
+    "id": "mvz9ac7z-41b1d86540",
+    "ts": 1793623777631
+   },
+   {
+    "device": "Cloud",
+    "agent": "research-bot",
+    "type": "ticket.comment",
+    "ticket": "WEB-1",
+    "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+    "project": "Website relaunch",
+    "subject": "Write the pricing page copy",
+    "body": "Drafted all three plans. The comparison table is in the Library: *Launch plan*.",
+    "id": "mvz9ac7o-9b234c217c",
+    "ts": 1793623777620
+   }
+  ]
+ },
+ "tree": {
+  "name": "vault",
+  "path": "",
+  "type": "dir",
+  "mtime": 1793623777378,
+  "children": [
+   {
+    "name": "Agents",
+    "path": "Agents",
+    "type": "dir",
+    "mtime": 1793623777637,
+    "children": [
+     {
+      "name": "design-bot.md",
+      "path": "Agents/design-bot.md",
+      "type": "file",
+      "kind": "markdown",
+      "mtime": 1793623777642,
+      "size": 297,
+      "title": "design-bot"
+     },
+     {
+      "name": "research-bot.md",
+      "path": "Agents/research-bot.md",
+      "type": "file",
+      "kind": "markdown",
+      "mtime": 1793623777657,
+      "size": 632,
+      "title": "research-bot"
+     }
+    ]
+   },
+   {
+    "name": "Inbox",
+    "path": "Inbox",
+    "type": "dir",
+    "mtime": 1793623777378,
+    "children": [
+     {
+      "name": "INB-1.md",
+      "path": "Inbox/INB-1.md",
+      "type": "file",
+      "kind": "markdown",
+      "mtime": 1793623777614,
+      "size": 222,
+      "title": "Renew the domain"
+     }
+    ]
+   },
+   {
+    "name": "Projects",
+    "path": "Projects",
+    "type": "dir",
+    "mtime": 1793623777378,
+    "children": [
+     {
+      "name": "CENTCOM",
+      "path": "Projects/CENTCOM",
+      "type": "dir",
+      "mtime": 1793623777399,
+      "children": [
+       {
+        "name": "Library",
+        "path": "Projects/CENTCOM/Library",
+        "type": "dir",
+        "mtime": 1793623777393,
+        "children": []
+       },
+       {
+        "name": "Tickets",
+        "path": "Projects/CENTCOM/Tickets",
+        "type": "dir",
+        "mtime": 1793623777393,
+        "children": [
+         {
+          "name": "CEN-1.md",
+          "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777411,
+          "size": 301,
+          "title": "Connect your first agent"
+         },
+         {
+          "name": "CEN-2.md",
+          "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777424,
+          "size": 432,
+          "title": "Set up remote access"
+         },
+         {
+          "name": "CEN-3.md",
+          "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777437,
+          "size": 339,
+          "title": "Connect the iOS companion"
+         }
+        ]
+       },
+       {
+        "name": "project.md",
+        "path": "Projects/CENTCOM/project.md",
+        "type": "file",
+        "kind": "markdown",
+        "mtime": 1793623777395,
+        "size": 302,
+        "title": "project"
+       }
+      ]
+     },
+     {
+      "name": "Mobile app",
+      "path": "Projects/Mobile app",
+      "type": "dir",
+      "mtime": 1793623777483,
+      "children": [
+       {
+        "name": "Library",
+        "path": "Projects/Mobile app/Library",
+        "type": "dir",
+        "mtime": 1793623777475,
+        "children": []
+       },
+       {
+        "name": "Tickets",
+        "path": "Projects/Mobile app/Tickets",
+        "type": "dir",
+        "mtime": 1793623777475,
+        "children": [
+         {
+          "name": "APP-1.md",
+          "path": "Projects/Mobile app/Tickets/APP-1.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777573,
+          "size": 305,
+          "title": "Cache the last 50 tasks for offline reading"
+         },
+         {
+          "name": "APP-2.md",
+          "path": "Projects/Mobile app/Tickets/APP-2.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777588,
+          "size": 237,
+          "title": "Share sheet: capture a link as a task"
+         },
+         {
+          "name": "APP-3.md",
+          "path": "Projects/Mobile app/Tickets/APP-3.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777602,
+          "size": 218,
+          "title": "App icon in dark mode"
+         }
+        ]
+       },
+       {
+        "name": "project.md",
+        "path": "Projects/Mobile app/project.md",
+        "type": "file",
+        "kind": "markdown",
+        "mtime": 1793623777479,
+        "size": 210,
+        "title": "project"
+       }
+      ]
+     },
+     {
+      "name": "Website relaunch",
+      "path": "Projects/Website relaunch",
+      "type": "dir",
+      "mtime": 1793623777470,
+      "children": [
+       {
+        "name": "Library",
+        "path": "Projects/Website relaunch/Library",
+        "type": "dir",
+        "mtime": 1793623777465,
+        "children": [
+         {
+          "name": "Launch plan.md",
+          "path": "Projects/Website relaunch/Library/Launch plan.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777627,
+          "size": 216,
+          "title": "Launch plan"
+         }
+        ]
+       },
+       {
+        "name": "Tickets",
+        "path": "Projects/Website relaunch/Tickets",
+        "type": "dir",
+        "mtime": 1793623777465,
+        "children": [
+         {
+          "name": "WEB-1.md",
+          "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777514,
+          "size": 312,
+          "title": "Write the pricing page copy"
+         },
+         {
+          "name": "WEB-2.md",
+          "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777529,
+          "size": 236,
+          "title": "Choose the hero illustration"
+         },
+         {
+          "name": "WEB-3.md",
+          "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777543,
+          "size": 231,
+          "title": "Redirect the old docs URLs"
+         },
+         {
+          "name": "WEB-4.md",
+          "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+          "type": "file",
+          "kind": "markdown",
+          "mtime": 1793623777558,
+          "size": 237,
+          "title": "Accessibility pass on the navigation"
+         }
+        ]
+       },
+       {
+        "name": "Labels.json",
+        "path": "Projects/Website relaunch/Labels.json",
+        "type": "file",
+        "kind": "other",
+        "mtime": 1793623777503,
+        "size": 361
+       },
+       {
+        "name": "project.md",
+        "path": "Projects/Website relaunch/project.md",
+        "type": "file",
+        "kind": "markdown",
+        "mtime": 1793623777466,
+        "size": 211,
+        "title": "project"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "type": "file",
+    "kind": "markdown",
+    "mtime": 1793623777388,
+    "size": 999,
+    "title": "AGENTS"
+   }
+  ]
+ },
+ "doc?path=Projects/CENTCOM/Tickets/CEN-1.md": {
+  "path": "Projects/CENTCOM/Tickets/CEN-1.md",
+  "title": "Connect your first agent",
+  "frontmatter": {
+   "id": "CEN-1",
+   "title": "Connect your first agent",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.402Z",
+   "updated": "2026-11-02T12:49:37.402Z"
+  },
+  "body": "Connect a CLI or MCP client and create, claim, comment on and complete a task.",
+  "mtime": 1793623777411,
+  "created": 1793623777402
+ },
+ "doc?path=Projects/CENTCOM/Tickets/CEN-2.md": {
+  "path": "Projects/CENTCOM/Tickets/CEN-2.md",
+  "title": "Set up remote access",
+  "frontmatter": {
+   "id": "CEN-2",
+   "title": "Set up remote access",
+   "status": "todo",
+   "priority": 2,
+   "agent": null,
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.417Z",
+   "updated": "2026-11-02T12:49:37.417Z"
+  },
+  "body": "Put the server behind private HTTPS (for example Tailscale Serve, Cloudflare Tunnel, or your own reverse proxy) and add its https:// origin to remoteOrigin. Verify that remote requests without a token are refused.",
+  "mtime": 1793623777424,
+  "created": 1793623777417
+ },
+ "doc?path=Projects/CENTCOM/Tickets/CEN-3.md": {
+  "path": "Projects/CENTCOM/Tickets/CEN-3.md",
+  "title": "Connect the iOS companion",
+  "frontmatter": {
+   "id": "CEN-3",
+   "title": "Connect the iOS companion",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.429Z",
+   "updated": "2026-11-02T12:49:37.429Z"
+  },
+  "body": "Enter the shared backend URL and token in the iOS app. Create a task on the phone and verify it appears on desktop.",
+  "mtime": 1793623777437,
+  "created": 1793623777429
+ },
+ "doc?path=Projects/CENTCOM/project.md": {
+  "path": "Projects/CENTCOM/project.md",
+  "title": "project",
+  "frontmatter": {
+   "key": "CEN",
+   "status": "active",
+   "summary": "Projects and tasks, shared across your devices and agents.",
+   "color": "#95A2B3",
+   "icon": "Command",
+   "lead": "sam",
+   "created": "2026-11-02T12:49:37.393Z",
+   "updated": "2026-11-02T12:49:37.393Z"
+  },
+  "body": "One place to plan projects, capture tasks, and follow work across your devices and agents.",
+  "mtime": 1793623777395,
+  "created": 1793623777393
+ },
+ "doc?path=Projects/Mobile app/Tickets/APP-1.md": {
+  "path": "Projects/Mobile app/Tickets/APP-1.md",
+  "title": "Cache the last 50 tasks for offline reading",
+  "frontmatter": {
+   "id": "APP-1",
+   "title": "Cache the last 50 tasks for offline reading",
+   "status": "in_progress",
+   "priority": 1,
+   "agent": "codex",
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.564Z",
+   "updated": "2026-11-02T12:49:37.564Z"
+  },
+  "body": "Read-only offline mode. Writes still need a connection.",
+  "mtime": 1793623777573,
+  "created": 1793623777564
+ },
+ "doc?path=Projects/Mobile app/Tickets/APP-2.md": {
+  "path": "Projects/Mobile app/Tickets/APP-2.md",
+  "title": "Share sheet: capture a link as a task",
+  "frontmatter": {
+   "id": "APP-2",
+   "title": "Share sheet: capture a link as a task",
+   "status": "todo",
+   "priority": 3,
+   "agent": null,
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.579Z",
+   "updated": "2026-11-02T12:49:37.579Z"
+  },
+  "body": "",
+  "mtime": 1793623777588,
+  "created": 1793623777579
+ },
+ "doc?path=Projects/Mobile app/Tickets/APP-3.md": {
+  "path": "Projects/Mobile app/Tickets/APP-3.md",
+  "title": "App icon in dark mode",
+  "frontmatter": {
+   "id": "APP-3",
+   "title": "App icon in dark mode",
+   "status": "done",
+   "priority": 4,
+   "agent": "sam",
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.593Z",
+   "updated": "2026-11-02T12:49:37.593Z"
+  },
+  "body": "",
+  "mtime": 1793623777602,
+  "created": 1793623777593
+ },
+ "doc?path=Projects/Mobile app/project.md": {
+  "path": "Projects/Mobile app/project.md",
+  "title": "project",
+  "frontmatter": {
+   "key": "APP",
+   "status": "active",
+   "summary": "iPhone companion: offline reading and faster capture.",
+   "color": "#BB87FC",
+   "icon": "Smartphone",
+   "lead": null,
+   "created": "2026-11-02T12:49:37.475Z",
+   "updated": "2026-11-02T12:49:37.475Z"
+  },
+  "body": "",
+  "mtime": 1793623777479,
+  "created": 1793623777475
+ },
+ "doc?path=Projects/Website relaunch/Library/Launch plan.md": {
+  "path": "Projects/Website relaunch/Library/Launch plan.md",
+  "title": "Launch plan",
+  "frontmatter": {},
+  "body": "# Launch plan\n\n| Plan | Price | For |\n| --- | --- | --- |\n| Free | $0 | Trying it out |\n| Pro | $8 | One person |\n| Team | $20 | Shared projects |\n\n- [x] Pricing copy drafted\n- [ ] Hero illustration\n- [ ] Redirects\n",
+  "mtime": 1793623777627,
+  "created": 1793623777627
+ },
+ "doc?path=Projects/Website relaunch/Tickets/WEB-1.md": {
+  "path": "Projects/Website relaunch/Tickets/WEB-1.md",
+  "title": "Write the pricing page copy",
+  "frontmatter": {
+   "id": "WEB-1",
+   "title": "Write the pricing page copy",
+   "status": "in_progress",
+   "priority": 2,
+   "agent": "research-bot",
+   "created_by": "sam",
+   "labels": [
+    "copy"
+   ],
+   "due": "2026-11-20",
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.506Z",
+   "updated": "2026-11-02T12:49:37.506Z"
+  },
+  "body": "Three plans, one comparison table. Keep it under 300 words.",
+  "mtime": 1793623777514,
+  "created": 1793623777506
+ },
+ "doc?path=Projects/Website relaunch/Tickets/WEB-2.md": {
+  "path": "Projects/Website relaunch/Tickets/WEB-2.md",
+  "title": "Choose the hero illustration",
+  "frontmatter": {
+   "id": "WEB-2",
+   "title": "Choose the hero illustration",
+   "status": "in_review",
+   "priority": 3,
+   "agent": "sam",
+   "created_by": "sam",
+   "labels": [
+    "design"
+   ],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.520Z",
+   "updated": "2026-11-02T12:49:37.520Z"
+  },
+  "body": "",
+  "mtime": 1793623777529,
+  "created": 1793623777520
+ },
+ "doc?path=Projects/Website relaunch/Tickets/WEB-3.md": {
+  "path": "Projects/Website relaunch/Tickets/WEB-3.md",
+  "title": "Redirect the old docs URLs",
+  "frontmatter": {
+   "id": "WEB-3",
+   "title": "Redirect the old docs URLs",
+   "status": "todo",
+   "priority": 2,
+   "agent": "claude-code",
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.534Z",
+   "updated": "2026-11-02T12:49:37.534Z"
+  },
+  "body": "",
+  "mtime": 1793623777543,
+  "created": 1793623777534
+ },
+ "doc?path=Projects/Website relaunch/Tickets/WEB-4.md": {
+  "path": "Projects/Website relaunch/Tickets/WEB-4.md",
+  "title": "Accessibility pass on the navigation",
+  "frontmatter": {
+   "id": "WEB-4",
+   "title": "Accessibility pass on the navigation",
+   "status": "backlog",
+   "priority": 3,
+   "agent": null,
+   "created_by": "sam",
+   "labels": [],
+   "due": null,
+   "parent": null,
+   "previous_ids": [],
+   "created": "2026-11-02T12:49:37.549Z",
+   "updated": "2026-11-02T12:49:37.549Z"
+  },
+  "body": "",
+  "mtime": 1793623777558,
+  "created": 1793623777549
+ },
+ "doc?path=Projects/Website relaunch/project.md": {
+  "path": "Projects/Website relaunch/project.md",
+  "title": "project",
+  "frontmatter": {
+   "key": "WEB",
+   "status": "active",
+   "summary": "New marketing site and docs, live before the spring launch.",
+   "color": "#26B5CE",
+   "icon": "Globe",
+   "lead": null,
+   "created": "2026-11-02T12:49:37.465Z",
+   "updated": "2026-11-02T12:49:37.465Z"
+  },
+  "body": "",
+  "mtime": 1793623777466,
+  "created": 1793623777465
+ },
+ "skills": {
+  "skills": [
+   {
+    "id": "0c2f5edb376f58c9457e425a49237f252d35e858ff98e3462213580c7bea85c3",
+    "name": "release-notes",
+    "description": "Write release notes from merged pull requests.",
+    "sourceUrl": null,
+    "versions": 1,
+    "installations": [
+     {
+      "id": "e6502b3fee5db296a15c5c9a02254e2d55e55a66e97ffb41d21ea79363b4d1ce",
+      "agent": "Codex",
+      "scope": "global",
+      "project": null,
+      "path": "/Users/sam/.codex/skills/release-notes/SKILL.md",
+      "sourceUrl": null,
+      "deviceId": "laptop",
+      "deviceName": "Laptop",
+      "reporter": "demo",
+      "reportedAt": 1793623777664,
+      "hash": "dcd03e4a62d58e4c019d40648945a53d1fbd92f16daca4a391dbd994c5529967"
+     }
+    ],
+    "library": {
+     "id": "local",
+     "name": "Other local Skills"
+    }
+   },
+   {
+    "id": "e1f48d85fdbab673d287206eaae3bd84a15cbbee026e32e41a053367af34ba24",
+    "name": "summarize",
+    "description": "Condense long sources into a page.",
+    "sourceUrl": null,
+    "versions": 1,
+    "installations": [
+     {
+      "id": "cae25957084fa0c411985539a1c0718019dee53ff466aa51f28916fdab56a000",
+      "agent": "Claude Code",
+      "scope": "global",
+      "project": null,
+      "path": "/Users/sam/.claude/skills/summarize/SKILL.md",
+      "sourceUrl": null,
+      "deviceId": "laptop",
+      "deviceName": "Laptop",
+      "reporter": "demo",
+      "reportedAt": 1793623777664,
+      "hash": "b91076304c55e7000dcd810e7b773fbe8d5b11a1fa52dedc6230d618ae5fc3a3"
+     }
+    ],
+    "library": {
+     "id": "local",
+     "name": "Other local Skills"
+    }
+   }
+  ],
+  "devices": [
+   {
+    "id": "laptop",
+    "name": "Laptop",
+    "reportedAt": 1793623777664
+   }
+  ]
+ },
+ "skills/installations/e6502b3fee5db296a15c5c9a02254e2d55e55a66e97ffb41d21ea79363b4d1ce": {
+  "markdown": "---\nname: release-notes\ndescription: Write release notes from merged pull requests.\n---\n# Release notes\n\nGroup by user-visible change. No internal jargon.\n",
+  "body": "# Release notes\n\nGroup by user-visible change. No internal jargon.",
+  "frontmatter": {
+   "name": "release-notes",
+   "description": "Write release notes from merged pull requests."
+  }
+ },
+ "skills/installations/cae25957084fa0c411985539a1c0718019dee53ff466aa51f28916fdab56a000": {
+  "markdown": "---\nname: summarize\ndescription: Condense long sources into a page.\n---\n# Summarize\n\nRead everything, then write one page with sources.\n",
+  "body": "# Summarize\n\nRead everything, then write one page with sources.",
+  "frontmatter": {
+   "name": "summarize",
+   "description": "Condense long sources into a page."
+  }
+ },
+ "instructions": {
+  "files": [
+   {
+    "id": "3805fa3a1da098f1cf860d9b3a720d8cd8f8a1bb8759300bbf4d058f3a94dbf1",
+    "name": "AGENTS.md",
+    "agent": "Codex",
+    "scope": "global",
+    "project": null,
+    "relativePath": ".codex/AGENTS.md",
+    "versions": 1,
+    "copies": [
+     {
+      "name": "AGENTS.md",
+      "agent": "Codex",
+      "scope": "global",
+      "project": null,
+      "projectKey": null,
+      "relativePath": ".codex/AGENTS.md",
+      "path": "/Users/sam/.codex/AGENTS.md",
+      "id": "5a387a17c07ef205190ccf59835ccbe9ab2cb84c07360155b2589443d784acfc",
+      "deviceId": "laptop",
+      "deviceName": "Laptop",
+      "reporter": "demo",
+      "reportedAt": 1793623777674,
+      "hash": "15ed3501e264128fc70f5743716e8904638ab14d8f9e114995de569d1349b6a6"
+     }
+    ]
+   }
+  ],
+  "devices": [
+   {
+    "id": "laptop",
+    "name": "Laptop",
+    "reportedAt": 1793623777674
+   }
+  ]
+ },
+ "instructions/copies/5a387a17c07ef205190ccf59835ccbe9ab2cb84c07360155b2589443d784acfc": {
+  "markdown": "# How I work\n\nTrack work in CENTCOM. Claim a ticket before starting and comment as you go.\n",
+  "body": "# How I work\n\nTrack work in CENTCOM. Claim a ticket before starting and comment as you go.\n"
+ }
+}

@@ -1,0 +1,149 @@
+/*
+ * Design tokens. Primitives are values; semantic roles carry meaning.
+ * Components reference semantic roles only, so light/dark stay in lockstep.
+ */
+:root {
+  /* ── Type ── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+  --font-mono: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, monospace;
+
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-base: 13px;
+  --text-md: 14px;
+  --text-lg: 15px; /* long-form reading size */
+  --text-xl: 18px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+
+  /* ── Space (4px grid) ── */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  /* ── Shape ── */
+  --r-sm: 5px;
+  --r-md: 7px;
+  --r-lg: 10px;
+  --r-xl: 14px;
+  --r-full: 999px;
+
+  /* ── Layout ── */
+  --sidebar-w: 248px;
+  --header-h: 46px;
+  --row-h: 42px;
+  --panel-inset: 8px;
+  --measure: 720px; /* reading column */
+
+  /* ── Motion (Emil: strong ease-out, UI under 300ms) ── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --d-press: 120ms;
+  --d-fast: 140ms;
+  --d-pop: 170ms;
+  --d-modal: 220ms;
+
+  /* ── Color: light ── */
+  --bg-app: #f3f3f4;
+  --bg-panel: #ffffff;
+  --bg-raised: #ffffff;
+  --bg-subtle: #f7f7f8;
+  --bg-sunken: #f1f1f3;
+  --bg-hover: rgba(15, 15, 25, 0.045);
+  --bg-active: rgba(15, 15, 25, 0.075);
+  --bg-selected: rgba(24, 59, 99, 0.09);
+  --bg-scrim: rgba(20, 20, 28, 0.28);
+
+  --border: rgba(15, 15, 25, 0.08);
+  --border-strong: rgba(15, 15, 25, 0.14);
+
+  --text: #1a1a1f;
+  --text-2: #5d5d66;
+  --text-3: #8b8b94;
+  --text-4: #b4b4bb;
+  --text-on-accent: #ffffff;
+
+  --accent: #183b63;
+  --accent-hover: #112d4e;
+  --accent-soft: rgba(24, 59, 99, 0.12);
+  --focus-ring: rgba(24, 59, 99, 0.45);
+
+  --danger: #d93f3f;
+  --danger-soft: rgba(217, 63, 63, 0.1);
+
+  /* status */
+  --st-backlog: #a0a0a9;
+  --st-todo: #85858f;
+  --st-progress: #e5a00d;
+  --st-review: #2f9e6e;
+  --st-done: #68717d;
+  --st-canceled: #a0a0a9;
+
+  /* priority */
+  --pr-urgent: #e5602e;
+  --pr-bar: #6c6c76;
+  --pr-bar-dim: #d2d2d8;
+
+  --shadow-sm: 0 1px 2px rgba(15, 15, 25, 0.06);
+  --shadow-pop: 0 0 0 1px rgba(15, 15, 25, 0.07), 0 4px 10px -2px rgba(15, 15, 25, 0.1),
+    0 14px 34px -8px rgba(15, 15, 25, 0.16);
+  --shadow-modal: 0 0 0 1px rgba(15, 15, 25, 0.08), 0 10px 24px -6px rgba(15, 15, 25, 0.16),
+    0 32px 80px -16px rgba(15, 15, 25, 0.28);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-app: #0e0e10;
+    --bg-panel: #161618;
+    --bg-raised: #1e1e22;
+    --bg-subtle: #1b1b1e;
+    --bg-sunken: #121214;
+    --bg-hover: rgba(255, 255, 255, 0.055);
+    --bg-active: rgba(255, 255, 255, 0.09);
+    --bg-selected: rgba(255, 255, 255, 0.08);
+    --bg-scrim: rgba(0, 0, 0, 0.5);
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+
+    --text: #ededf0;
+    --text-2: #a4a4ae;
+    --text-3: #74747e;
+    --text-4: #4e4e57;
+
+    --accent: #254e79;
+    --accent-hover: #30608f;
+    --accent-soft: rgba(145, 173, 201, 0.16);
+    --focus-ring: rgba(145, 173, 201, 0.55);
+
+    --danger: #ef6461;
+    --danger-soft: rgba(239, 100, 97, 0.14);
+
+    --st-backlog: #6f6f79;
+    --st-todo: #9a9aa4;
+    --st-progress: #f0b429;
+    --st-review: #3fbf88;
+    --st-done: #b5bec9;
+    --st-canceled: #6f6f79;
+
+    --pr-urgent: #f27a4a;
+    --pr-bar: #b0b0ba;
+    --pr-bar-dim: #3c3c44;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-pop: 0 0 0 1px rgba(255, 255, 255, 0.09), 0 8px 24px -4px rgba(0, 0, 0, 0.55);
+    --shadow-modal: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 24px 70px -12px rgba(0, 0, 0, 0.7);
+
+    color-scheme: dark;
+  }
+}

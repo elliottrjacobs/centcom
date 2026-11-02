@@ -1,0 +1,661 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B1B9F404AE90489A06FBDD0 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9749746FEF89E300AC66E324 /* Instructions.swift */; };
+		11633290B6E5D50D32804F8D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6E7BEFFB2F4ADD3BFDE4E2 /* Models.swift */; };
+		1214FC3172D334C4C8120E7C /* SkillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4F61E043AFA4AD443CD39B /* SkillsTests.swift */; };
+		1691E627BE43FEEC213CA37D /* PageSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6907B493F6EAB0F4DD1798F8 /* PageSearch.swift */; };
+		1A58D0FDE9241646538DEC13 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E85BE510100A984BBBF7C8 /* FilterButton.swift */; };
+		2990EFE5387DDF6FF80732CF /* MarkdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690C6ED18AB6AD047F5D77E /* MarkdownTests.swift */; };
+		2E6132263AAFE0F055F2D960 /* ProjectEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE3E6EDFDA7CE8005F8102 /* ProjectEditor.swift */; };
+		2EBBDD6BB7423E6E04411FBE /* MarkdownKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B328082B2BFC8C227C108 /* MarkdownKeyboard.swift */; };
+		2F014C1A051AD58F2F22C003 /* AgentHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4008428D40A3CF6D68CF1341 /* AgentHomeTests.swift */; };
+		2F7B04856DFCF140F2700769 /* TaskEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A981055A3D94F00CCD3677A8 /* TaskEditor.swift */; };
+		352A5F97161415F87AD018D3 /* BackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E42F943FE0A363528E580D /* BackendTests.swift */; };
+		3A4A3D9DC66E1A840D83007A /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BAB4EC2D4740709DF6200E /* MarkdownView.swift */; };
+		3F56263D246F1BAC55A3541F /* ActivityFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FF0468735116187BE0866 /* ActivityFilters.swift */; };
+		428F97972B2B9F000E4C1E3F /* Skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9532F82C0AC5897C0D6EF4 /* Skills.swift */; };
+		58349A51B590E45331252455 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1BBCAAB630FC62A77ADC7 /* Wiki.swift */; };
+		5FC4CF3837B5DA50A45CB271 /* NavigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1711F512171CBADB054A293F /* NavigationUITests.swift */; };
+		60BCA74F64296F0381DAFE9C /* PageNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67821BC19F06C74FC3FAFA6 /* PageNavigation.swift */; };
+		62F9F8955649158D02A96280 /* TaskFilteringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3EC5A41E9FE5ED39F0B9BE /* TaskFilteringTests.swift */; };
+		68C3FEAFD5782E87AA890DAB /* DemoModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EB03A8CCFB653695531A8 /* DemoModeTests.swift */; };
+		8942677C39D1849E1C174E86 /* Markdown in Resources */ = {isa = PBXBuildFile; fileRef = 8DC8F886728AAAA0940D23EC /* Markdown */; };
+		8E31C7FEC39F3A5EBD88B70B /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3984B8C6E8BE6F66C7196B3 /* Backend.swift */; };
+		96FBA10B31E6A02742203DD5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AFBF5FE4F1F0E3DF4555C /* PrivacyInfo.xcprivacy */; };
+		99432B5DEBE0C2164E3E96C5 /* AppearanceActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777959C03AC12225258FFEEF /* AppearanceActivityTests.swift */; };
+		9F263DD2A54CD9D0DC733FC6 /* AgentRobotIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D367AAD48B9F82E3D7557A98 /* AgentRobotIcon.swift */; };
+		A369A641BF59404621820CAE /* ActivityFiltersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A129B2324F5E02F1DC4085A /* ActivityFiltersTests.swift */; };
+		ABD48395FEADF081B951D1D0 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5888E1ABD03291192F5DB0 /* Appearance.swift */; };
+		B9C9C95733A53ABA94ADF7AC /* LabelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935E44B44A2364C96A03DEE /* LabelManager.swift */; };
+		BB0840FD9A4B933469C02087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C20AF91323950472A6FB12BC /* Assets.xcassets */; };
+		C1A765E57FA5ED6CD96EE204 /* Agents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CF972F3D02E10A9C59F977 /* Agents.swift */; };
+		D73FE77A695374E1129DA8A1 /* LockedHorizontalBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37137C6BF22443AE87AB23DF /* LockedHorizontalBar.swift */; };
+		DAE4735399DFE6728F599565 /* LibraryFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E67E96B6401CA511A861C /* LibraryFiles.swift */; };
+		E0A209AFCE1141E5E375024A /* Demo in Resources */ = {isa = PBXBuildFile; fileRef = 68F3DD4DB4DA82C6FF43BEC7 /* Demo */; };
+		ECCDDC33A9E8A8C93340F66C /* CENTCOMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C99E7254FCD504AC0B449 /* CENTCOMApp.swift */; };
+		F0FCFE5A782AA9F0D219A184 /* TaskFiltering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE7E0E62DDDEE33BF4E09D5 /* TaskFiltering.swift */; };
+		F68272860923CD7A26FAAD80 /* DemoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002AC0347E2E2994AE1DC42 /* DemoMode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C236D4D157BF337049C547CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91FCA4D27907B8B5A7834ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D2023317B6712A7633B1C1;
+			remoteInfo = CENTCOM;
+		};
+		CDABF08FAA1F1BA1CB508BAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91FCA4D27907B8B5A7834ABE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3D2023317B6712A7633B1C1;
+			remoteInfo = CENTCOM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E42F943FE0A363528E580D /* BackendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendTests.swift; sourceTree = "<group>"; };
+		0D6E7BEFFB2F4ADD3BFDE4E2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		0F5888E1ABD03291192F5DB0 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		1690C6ED18AB6AD047F5D77E /* MarkdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTests.swift; sourceTree = "<group>"; };
+		1711F512171CBADB054A293F /* NavigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationUITests.swift; sourceTree = "<group>"; };
+		27BAB4EC2D4740709DF6200E /* MarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownView.swift; sourceTree = "<group>"; };
+		2A129B2324F5E02F1DC4085A /* ActivityFiltersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFiltersTests.swift; sourceTree = "<group>"; };
+		2E3EC5A41E9FE5ED39F0B9BE /* TaskFilteringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilteringTests.swift; sourceTree = "<group>"; };
+		3002AC0347E2E2994AE1DC42 /* DemoMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMode.swift; sourceTree = "<group>"; };
+		314D0151CC784D8F652E8C83 /* CENTCOMTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CENTCOMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37137C6BF22443AE87AB23DF /* LockedHorizontalBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedHorizontalBar.swift; sourceTree = "<group>"; };
+		3C9AFBF5FE4F1F0E3DF4555C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4008428D40A3CF6D68CF1341 /* AgentHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentHomeTests.swift; sourceTree = "<group>"; };
+		4DE7E0E62DDDEE33BF4E09D5 /* TaskFiltering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFiltering.swift; sourceTree = "<group>"; };
+		5B3DA0B0C46D03513FD982BF /* CENTCOMUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CENTCOMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B1BBCAAB630FC62A77ADC7 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
+		68F3DD4DB4DA82C6FF43BEC7 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Demo; path = CENTCOM/Resources/Demo; sourceTree = SOURCE_ROOT; };
+		6907B493F6EAB0F4DD1798F8 /* PageSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSearch.swift; sourceTree = "<group>"; };
+		777959C03AC12225258FFEEF /* AppearanceActivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceActivityTests.swift; sourceTree = "<group>"; };
+		7A29CE421C64F4A7557F70C7 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		7E9532F82C0AC5897C0D6EF4 /* Skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skills.swift; sourceTree = "<group>"; };
+		873FF0468735116187BE0866 /* ActivityFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFilters.swift; sourceTree = "<group>"; };
+		8DC8F886728AAAA0940D23EC /* Markdown */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Markdown; path = CENTCOM/Resources/Markdown; sourceTree = SOURCE_ROOT; };
+		90AFCDD02A29A6E11CD45792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		912B328082B2BFC8C227C108 /* MarkdownKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownKeyboard.swift; sourceTree = "<group>"; };
+		9749746FEF89E300AC66E324 /* Instructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
+		9935E44B44A2364C96A03DEE /* LabelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelManager.swift; sourceTree = "<group>"; };
+		A3984B8C6E8BE6F66C7196B3 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		A981055A3D94F00CCD3677A8 /* TaskEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditor.swift; sourceTree = "<group>"; };
+		BEEE3E6EDFDA7CE8005F8102 /* ProjectEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEditor.swift; sourceTree = "<group>"; };
+		C20AF91323950472A6FB12BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE9EB03A8CCFB653695531A8 /* DemoModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModeTests.swift; sourceTree = "<group>"; };
+		D367AAD48B9F82E3D7557A98 /* AgentRobotIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentRobotIcon.swift; sourceTree = "<group>"; };
+		D8BB55C0A30420AAEF8B94EC /* CENTCOM.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CENTCOM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E67821BC19F06C74FC3FAFA6 /* PageNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageNavigation.swift; sourceTree = "<group>"; };
+		E7E85BE510100A984BBBF7C8 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		E8CF972F3D02E10A9C59F977 /* Agents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agents.swift; sourceTree = "<group>"; };
+		ED4F61E043AFA4AD443CD39B /* SkillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTests.swift; sourceTree = "<group>"; };
+		F15E67E96B6401CA511A861C /* LibraryFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFiles.swift; sourceTree = "<group>"; };
+		F83C99E7254FCD504AC0B449 /* CENTCOMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CENTCOMApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		05CA2E84B5F6233A31B71274 /* CENTCOM */ = {
+			isa = PBXGroup;
+			children = (
+				873FF0468735116187BE0866 /* ActivityFilters.swift */,
+				D367AAD48B9F82E3D7557A98 /* AgentRobotIcon.swift */,
+				E8CF972F3D02E10A9C59F977 /* Agents.swift */,
+				0F5888E1ABD03291192F5DB0 /* Appearance.swift */,
+				C20AF91323950472A6FB12BC /* Assets.xcassets */,
+				A3984B8C6E8BE6F66C7196B3 /* Backend.swift */,
+				F83C99E7254FCD504AC0B449 /* CENTCOMApp.swift */,
+				3002AC0347E2E2994AE1DC42 /* DemoMode.swift */,
+				E7E85BE510100A984BBBF7C8 /* FilterButton.swift */,
+				90AFCDD02A29A6E11CD45792 /* Info.plist */,
+				9749746FEF89E300AC66E324 /* Instructions.swift */,
+				9935E44B44A2364C96A03DEE /* LabelManager.swift */,
+				F15E67E96B6401CA511A861C /* LibraryFiles.swift */,
+				37137C6BF22443AE87AB23DF /* LockedHorizontalBar.swift */,
+				912B328082B2BFC8C227C108 /* MarkdownKeyboard.swift */,
+				27BAB4EC2D4740709DF6200E /* MarkdownView.swift */,
+				0D6E7BEFFB2F4ADD3BFDE4E2 /* Models.swift */,
+				E67821BC19F06C74FC3FAFA6 /* PageNavigation.swift */,
+				6907B493F6EAB0F4DD1798F8 /* PageSearch.swift */,
+				3C9AFBF5FE4F1F0E3DF4555C /* PrivacyInfo.xcprivacy */,
+				BEEE3E6EDFDA7CE8005F8102 /* ProjectEditor.swift */,
+				7E9532F82C0AC5897C0D6EF4 /* Skills.swift */,
+				A981055A3D94F00CCD3677A8 /* TaskEditor.swift */,
+				4DE7E0E62DDDEE33BF4E09D5 /* TaskFiltering.swift */,
+				63B1BBCAAB630FC62A77ADC7 /* Wiki.swift */,
+			);
+			path = CENTCOM;
+			sourceTree = "<group>";
+		};
+		07AF9F0BCBADC6C89915FD3E /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				7A29CE421C64F4A7557F70C7 /* Base.xcconfig */,
+			);
+			name = ios;
+			path = .;
+			sourceTree = "<group>";
+		};
+		1A96F52A55D62FAD3BD6E71A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB55C0A30420AAEF8B94EC /* CENTCOM.app */,
+				314D0151CC784D8F652E8C83 /* CENTCOMTests.xctest */,
+				5B3DA0B0C46D03513FD982BF /* CENTCOMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39277BC40959119273EE1CFD /* CENTCOMUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1711F512171CBADB054A293F /* NavigationUITests.swift */,
+			);
+			path = CENTCOMUITests;
+			sourceTree = "<group>";
+		};
+		780B839784D13D3FC2CF62D2 /* CENTCOMTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A129B2324F5E02F1DC4085A /* ActivityFiltersTests.swift */,
+				4008428D40A3CF6D68CF1341 /* AgentHomeTests.swift */,
+				777959C03AC12225258FFEEF /* AppearanceActivityTests.swift */,
+				03E42F943FE0A363528E580D /* BackendTests.swift */,
+				CE9EB03A8CCFB653695531A8 /* DemoModeTests.swift */,
+				1690C6ED18AB6AD047F5D77E /* MarkdownTests.swift */,
+				ED4F61E043AFA4AD443CD39B /* SkillsTests.swift */,
+				2E3EC5A41E9FE5ED39F0B9BE /* TaskFilteringTests.swift */,
+			);
+			path = CENTCOMTests;
+			sourceTree = "<group>";
+		};
+		98742AB536E70CC4495E08DB = {
+			isa = PBXGroup;
+			children = (
+				68F3DD4DB4DA82C6FF43BEC7 /* Demo */,
+				8DC8F886728AAAA0940D23EC /* Markdown */,
+				05CA2E84B5F6233A31B71274 /* CENTCOM */,
+				780B839784D13D3FC2CF62D2 /* CENTCOMTests */,
+				39277BC40959119273EE1CFD /* CENTCOMUITests */,
+				07AF9F0BCBADC6C89915FD3E /* ios */,
+				1A96F52A55D62FAD3BD6E71A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A73B1C44F721C92CB7E9D8DD /* CENTCOMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F2EEEF561C286718D658896 /* Build configuration list for PBXNativeTarget "CENTCOMUITests" */;
+			buildPhases = (
+				6386F46A815FDBA8EE876269 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A77974EB20E37ABA022EBFA /* PBXTargetDependency */,
+			);
+			name = CENTCOMUITests;
+			packageProductDependencies = (
+			);
+			productName = CENTCOMUITests;
+			productReference = 5B3DA0B0C46D03513FD982BF /* CENTCOMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		B5BD9A708C80570FF25A474F /* CENTCOMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBC21A21AE1ACF9072D6A688 /* Build configuration list for PBXNativeTarget "CENTCOMTests" */;
+			buildPhases = (
+				8B8793138CAFFB283D00D264 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				556EA274A2FC98200344FEBE /* PBXTargetDependency */,
+			);
+			name = CENTCOMTests;
+			packageProductDependencies = (
+			);
+			productName = CENTCOMTests;
+			productReference = 314D0151CC784D8F652E8C83 /* CENTCOMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3D2023317B6712A7633B1C1 /* CENTCOM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FC6484DD9BA165FC5E50982 /* Build configuration list for PBXNativeTarget "CENTCOM" */;
+			buildPhases = (
+				354D4AE7A11FBBBBB37D217D /* Sources */,
+				2525BB4D198815B05E7B4598 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CENTCOM;
+			packageProductDependencies = (
+			);
+			productName = CENTCOM;
+			productReference = D8BB55C0A30420AAEF8B94EC /* CENTCOM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91FCA4D27907B8B5A7834ABE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A73B1C44F721C92CB7E9D8DD = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3D2023317B6712A7633B1C1;
+					};
+					B5BD9A708C80570FF25A474F = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					C3D2023317B6712A7633B1C1 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 818C2182FD21056AA8D06A77 /* Build configuration list for PBXProject "CENTCOM" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 98742AB536E70CC4495E08DB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1A96F52A55D62FAD3BD6E71A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3D2023317B6712A7633B1C1 /* CENTCOM */,
+				B5BD9A708C80570FF25A474F /* CENTCOMTests */,
+				A73B1C44F721C92CB7E9D8DD /* CENTCOMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2525BB4D198815B05E7B4598 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0840FD9A4B933469C02087 /* Assets.xcassets in Resources */,
+				E0A209AFCE1141E5E375024A /* Demo in Resources */,
+				8942677C39D1849E1C174E86 /* Markdown in Resources */,
+				96FBA10B31E6A02742203DD5 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		354D4AE7A11FBBBBB37D217D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F56263D246F1BAC55A3541F /* ActivityFilters.swift in Sources */,
+				9F263DD2A54CD9D0DC733FC6 /* AgentRobotIcon.swift in Sources */,
+				C1A765E57FA5ED6CD96EE204 /* Agents.swift in Sources */,
+				ABD48395FEADF081B951D1D0 /* Appearance.swift in Sources */,
+				8E31C7FEC39F3A5EBD88B70B /* Backend.swift in Sources */,
+				ECCDDC33A9E8A8C93340F66C /* CENTCOMApp.swift in Sources */,
+				F68272860923CD7A26FAAD80 /* DemoMode.swift in Sources */,
+				1A58D0FDE9241646538DEC13 /* FilterButton.swift in Sources */,
+				0B1B9F404AE90489A06FBDD0 /* Instructions.swift in Sources */,
+				B9C9C95733A53ABA94ADF7AC /* LabelManager.swift in Sources */,
+				DAE4735399DFE6728F599565 /* LibraryFiles.swift in Sources */,
+				D73FE77A695374E1129DA8A1 /* LockedHorizontalBar.swift in Sources */,
+				2EBBDD6BB7423E6E04411FBE /* MarkdownKeyboard.swift in Sources */,
+				3A4A3D9DC66E1A840D83007A /* MarkdownView.swift in Sources */,
+				11633290B6E5D50D32804F8D /* Models.swift in Sources */,
+				60BCA74F64296F0381DAFE9C /* PageNavigation.swift in Sources */,
+				1691E627BE43FEEC213CA37D /* PageSearch.swift in Sources */,
+				2E6132263AAFE0F055F2D960 /* ProjectEditor.swift in Sources */,
+				428F97972B2B9F000E4C1E3F /* Skills.swift in Sources */,
+				2F7B04856DFCF140F2700769 /* TaskEditor.swift in Sources */,
+				F0FCFE5A782AA9F0D219A184 /* TaskFiltering.swift in Sources */,
+				58349A51B590E45331252455 /* Wiki.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6386F46A815FDBA8EE876269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FC4CF3837B5DA50A45CB271 /* NavigationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B8793138CAFFB283D00D264 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A369A641BF59404621820CAE /* ActivityFiltersTests.swift in Sources */,
+				2F014C1A051AD58F2F22C003 /* AgentHomeTests.swift in Sources */,
+				99432B5DEBE0C2164E3E96C5 /* AppearanceActivityTests.swift in Sources */,
+				352A5F97161415F87AD018D3 /* BackendTests.swift in Sources */,
+				68C3FEAFD5782E87AA890DAB /* DemoModeTests.swift in Sources */,
+				2990EFE5387DDF6FF80732CF /* MarkdownTests.swift in Sources */,
+				1214FC3172D334C4C8120E7C /* SkillsTests.swift in Sources */,
+				62F9F8955649158D02A96280 /* TaskFilteringTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A77974EB20E37ABA022EBFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D2023317B6712A7633B1C1 /* CENTCOM */;
+			targetProxy = C236D4D157BF337049C547CC /* PBXContainerItemProxy */;
+		};
+		556EA274A2FC98200344FEBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3D2023317B6712A7633B1C1 /* CENTCOM */;
+			targetProxy = CDABF08FAA1F1BA1CB508BAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F0F2EB7FDAA19816BD2548A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = studio.extendedmind.CENTCOMTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CENTCOM.app/CENTCOM";
+			};
+			name = Debug;
+		};
+		19D0A9CD11B999EB5F676DC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CENTCOM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CENTCOM;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your CENTCOM backend on your private network.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CENTCOM_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1D12CE7732C961541878C153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = studio.extendedmind.CENTCOMUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CENTCOM;
+			};
+			name = Release;
+		};
+		2A0F88F243DE8FB2529C466C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CENTCOM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CENTCOM;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect to your CENTCOM backend on your private network.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CENTCOM_BUNDLE_ID)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47A0EF00EF9DCDAC9EFB1743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = studio.extendedmind.CENTCOMUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CENTCOM;
+			};
+			name = Debug;
+		};
+		906DB640B75DCAFC3156BCF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A29CE421C64F4A7557F70C7 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 22;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BB52FF03722E66A2CBE83664 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = studio.extendedmind.CENTCOMTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CENTCOM.app/CENTCOM";
+			};
+			name = Release;
+		};
+		BBA552F4EAE97D2E264EEDBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A29CE421C64F4A7557F70C7 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 22;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FC6484DD9BA165FC5E50982 /* Build configuration list for PBXNativeTarget "CENTCOM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0F88F243DE8FB2529C466C /* Debug */,
+				19D0A9CD11B999EB5F676DC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6F2EEEF561C286718D658896 /* Build configuration list for PBXNativeTarget "CENTCOMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47A0EF00EF9DCDAC9EFB1743 /* Debug */,
+				1D12CE7732C961541878C153 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		818C2182FD21056AA8D06A77 /* Build configuration list for PBXProject "CENTCOM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				906DB640B75DCAFC3156BCF5 /* Debug */,
+				BBA552F4EAE97D2E264EEDBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FBC21A21AE1ACF9072D6A688 /* Build configuration list for PBXNativeTarget "CENTCOMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F0F2EB7FDAA19816BD2548A /* Debug */,
+				BB52FF03722E66A2CBE83664 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91FCA4D27907B8B5A7834ABE /* Project object */;
+}

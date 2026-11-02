@@ -1,0 +1,331 @@
+/* ───────── Editor chrome ───────── */
+.md-editor {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.md-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 0;
+  margin-bottom: 8px;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.tb-btn {
+  width: 28px;
+  height: 28px;
+}
+.tb-btn:disabled {
+  opacity: 0.35;
+}
+.tb-glyph {
+  font-size: 12.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.tb-sep {
+  width: 1px;
+  height: 16px;
+  margin: 0 6px;
+  background: var(--border-strong);
+}
+.tb-spacer {
+  flex: 1;
+}
+.tb-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 104px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--r-md);
+  font-weight: 500;
+  color: var(--text-2);
+}
+.tb-block:disabled {
+  opacity: 0.35;
+}
+.tb-source {
+  height: 24px;
+  padding: 0 7px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+.tb-source[data-on='true'] {
+  background: var(--accent-soft);
+  border-color: transparent;
+  color: var(--text);
+}
+@media (hover: hover) and (pointer: fine) {
+  .tb-block:hover:not(:disabled),
+  .tb-source:hover {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+}
+
+.md-source {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  tab-size: 2;
+  padding: 8px 0 64px;
+}
+
+/* ───────── Prose: what rendered markdown looks like ───────── */
+.prose {
+  outline: none;
+  font-size: var(--text-lg);
+  line-height: 1.65;
+  color: var(--text);
+  padding-bottom: 96px;
+  cursor: text;
+  overflow-wrap: anywhere;
+}
+.prose-compact {
+  font-size: var(--text-md);
+  line-height: 1.6;
+  padding-bottom: 8px;
+  min-height: 72px;
+}
+
+.prose > * + * {
+  margin-top: 0.85em;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+.prose h1 {
+  font-size: 1.7em;
+  margin-top: 1.6em;
+}
+.prose h2 {
+  font-size: 1.35em;
+  margin-top: 1.7em;
+}
+.prose h3 {
+  font-size: 1.13em;
+  margin-top: 1.5em;
+}
+.prose h4 {
+  font-size: 1em;
+  margin-top: 1.4em;
+  color: var(--text-2);
+}
+.prose > :first-child {
+  margin-top: 0;
+}
+.prose p {
+  text-wrap: pretty;
+}
+
+.prose a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--text) 35%, transparent);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.prose strong {
+  font-weight: 650;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+  margin-block: 0.7em;
+}
+.prose li + li,
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.3em;
+}
+.prose li > p {
+  margin: 0;
+}
+.prose ul:not([data-type='taskList']) > li::marker {
+  color: var(--text-3);
+}
+.prose ol > li::marker {
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Checklists */
+.prose ul[data-type='taskList'] {
+  list-style: none;
+  padding-left: 2px;
+}
+.prose ul[data-type='taskList'] > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.prose ul[data-type='taskList'] > li > label {
+  flex-shrink: 0;
+  margin-top: 0.3em;
+  user-select: none;
+}
+.prose ul[data-type='taskList'] > li > div {
+  flex: 1;
+  min-width: 0;
+}
+.prose ul[data-type='taskList'] input[type='checkbox'] {
+  appearance: none;
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border-radius: 5px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-panel);
+  transition:
+    background-color var(--d-fast) ease,
+    border-color var(--d-fast) ease,
+    transform var(--d-press) var(--ease-out);
+}
+.prose ul[data-type='taskList'] input[type='checkbox']:active {
+  transform: scale(0.9);
+}
+.prose ul[data-type='taskList'] input[type='checkbox']:checked {
+  background: var(--accent)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.2 8.3 6.8 10.8 11.8 5.4' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 16px no-repeat;
+  border-color: var(--text);
+}
+.prose ul[data-type='taskList'] > li[data-checked='true'] > div {
+  color: var(--text-3);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-4);
+}
+
+.prose blockquote {
+  margin-inline: 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--border-strong);
+  color: var(--text-2);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+}
+.prose pre {
+  margin-inline: 0;
+  padding: 14px 16px;
+  border-radius: var(--r-lg);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  line-height: 1.6;
+}
+.prose pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 13px;
+}
+
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-strong);
+  margin-block: 2em;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--r-lg);
+  /* Hairline so white-background screenshots don't dissolve into the page. */
+  outline: 1px solid var(--border);
+  outline-offset: -1px;
+}
+.prose img.ProseMirror-selectednode {
+  outline: 2px solid var(--accent);
+}
+
+.prose .tableWrapper {
+  overflow-x: auto;
+  margin-block: 1em;
+}
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.93em;
+  table-layout: fixed;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--border-strong);
+  padding: 7px 10px;
+  text-align: left;
+  vertical-align: top;
+  position: relative;
+  min-width: 80px;
+}
+.prose th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+}
+.prose td > p,
+.prose th > p {
+  margin: 0;
+}
+.prose .selectedCell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-soft);
+  pointer-events: none;
+}
+
+/* Placeholder on an empty document */
+.prose p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--text-4);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.ProseMirror-gapcursor::after {
+  border-top-color: var(--text);
+}
+
+/* Read-only rendering (comments): no editing affordances, no reserved space. */
+.prose-static {
+  cursor: auto;
+  min-height: 0;
+  padding-bottom: 0;
+}

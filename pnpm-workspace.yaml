@@ -1,0 +1,11 @@
+# Lifecycle scripts run only for the packages marked true; every other install script is blocked.
+# A new dependency with an install script fails `pnpm install` until it is listed here.
+allowBuilds:
+  electron: true
+  esbuild: true
+  # Windows installer tooling pulled in by electron-builder; the Mac app never needs it.
+  electron-winstaller: false
+
+# Refuse versions published less than three days ago (minutes). Compromised releases are usually
+# caught and yanked within that window; `pnpm audit` in CI still reports advisories immediately.
+minimumReleaseAge: 4320

@@ -1,0 +1,28 @@
+node_modules
+dist-ui
+dist-server
+dist-cli
+dist-electron
+release
+.DS_Store
+*.log
+.dev-vault
+
+ios/build
+ios/*.xcarchive
+ios/**/xcuserdata
+ios/build-device
+ios/OTA
+
+# Local credentials, agent configuration, and generated review captures
+.env
+.env.*
+!.env.example
+.claude/
+ios/Review/
+
+# Apple signing identity (copy ios/Signing.xcconfig.example)
+ios/Signing.xcconfig
+
+# Packaged apps (scripts/ios-archive.sh, electron-builder)
+/build/ios

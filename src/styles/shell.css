@@ -1,0 +1,320 @@
+/* ───────── Frame: gray chrome, content as an inset white panel ───────── */
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  height: 100%;
+}
+/* The hidden sidebar leaves the grid entirely, so the grid must become one column. With a
+   leftover `0` column the main panel gets auto-placed into it and the whole app goes blank. */
+.app[data-sidebar='closed'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.app[data-sidebar='closed'] .sidebar {
+  display: none;
+}
+
+.main {
+  min-height: 0;
+  min-width: 0;
+  padding: var(--panel-inset) var(--panel-inset) var(--panel-inset) 0;
+  display: flex;
+}
+.app[data-sidebar='closed'] .main {
+  min-height: 0;
+  padding-left: var(--panel-inset);
+}
+.panel {
+  min-height: 0;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* ───────── Sidebar ───────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 8px;
+}
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 52px;
+  padding: 0 4px 0 6px;
+  flex-shrink: 0;
+}
+/* Electron: hidden-inset title bar. Leave room for the traffic lights and make the strip draggable. */
+.is-electron .sidebar-head {
+  height: 84px;
+  padding-top: 40px;
+  -webkit-app-region: drag;
+}
+.is-electron .sidebar-head button {
+  -webkit-app-region: no-drag;
+}
+.is-electron .app[data-sidebar='closed'] .view-header {
+  padding-left: 84px;
+}
+.is-electron .view-header {
+  -webkit-app-region: drag;
+}
+.is-electron .view-header button,
+.is-electron .view-header a,
+.is-electron .view-header input {
+  -webkit-app-region: no-drag;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.brand-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+.brand-name {
+  font-weight: 650;
+  font-size: var(--text-base);
+  letter-spacing: 0.06em;
+}
+.compose {
+  background: var(--bg-panel);
+  box-shadow:
+    var(--shadow-sm),
+    0 0 0 1px var(--border);
+  color: var(--text);
+  margin-left: 4px;
+}
+
+.sidebar-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 12px;
+  /* Let the scrollbar sit in the gutter instead of over the rows. */
+  margin-right: -6px;
+  padding-right: 6px;
+}
+.nav-group {
+  display: grid;
+  gap: 1px;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: var(--r-md);
+  color: var(--text-2);
+  text-decoration: none;
+  font-weight: 500;
+  -webkit-user-drag: none;
+  /* No transition: nav highlight should track the pointer instantly (seen hundreds of times a day). */
+}
+.nav-row[data-active='true'] {
+  background: var(--bg-active);
+  color: var(--text);
+}
+.nav-row[data-over] {
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.nav-icon {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  flex-shrink: 0;
+  color: var(--text-3);
+}
+.nav-row[data-active='true'] .nav-icon {
+  color: var(--text);
+}
+.nav-label {
+  flex: 1;
+}
+.nav-count {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  font-weight: 500;
+}
+.nav-empty {
+  padding: 5px 8px 5px 32px;
+  font-size: var(--text-sm);
+  color: var(--text-4);
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-row:hover:not([data-active='true']) {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-top: 18px;
+  padding: 0 2px 0 8px;
+}
+.nav-section-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-3);
+  text-align: left;
+}
+.nav-section-action {
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+}
+.nav-section:hover .nav-section-action,
+.nav-section-action:focus-visible {
+  opacity: 1;
+}
+
+.chev {
+  color: var(--text-3);
+  transition: transform var(--d-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+.chev[data-open='true'] {
+  transform: rotate(90deg);
+}
+.tree-row {
+  gap: 4px;
+  font-weight: 450;
+}
+.tree-chev {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.tree-row .nav-icon {
+  margin-right: 3px;
+}
+
+.sidebar-foot {
+  flex-shrink: 0;
+  display: grid;
+  gap: 1px;
+  padding: 8px 0 10px;
+  border-top: 1px solid var(--border);
+}
+.conn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  padding: 0 12px;
+  font-size: var(--text-xs);
+  color: var(--text-3);
+}
+.conn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--st-review);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--st-review) 18%, transparent);
+}
+.conn[data-online='false'] .conn-dot {
+  background: var(--danger);
+  box-shadow: 0 0 0 3px var(--danger-soft);
+}
+
+/* ───────── View header ───────── */
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--header-h);
+  padding: 0 12px 0 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  font-weight: 500;
+}
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-2);
+  text-decoration: none;
+  min-width: 0;
+  border-radius: var(--r-sm);
+  padding: 2px 4px;
+  margin: 0 -4px;
+}
+.crumb:last-child {
+  color: var(--text);
+}
+.crumb-sep {
+  color: var(--text-4);
+  flex-shrink: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  a.crumb:hover {
+    background: var(--bg-hover);
+    color: var(--text);
+  }
+}
+.header-spacer {
+  flex: 1;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-subheader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 12px 0 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.view-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* ───────── Boot / offline ───────── */
+.boot {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+}
