@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Package the original CENTCOM artwork without redrawing or recoloring it.
+ * Package the supplied glossy radar artwork without redrawing or recoloring it.
  * Source: build/centcom-logo.jpg. Run: node scripts/make-icon.mjs
  * Requires macOS sips/iconutil and rsvg-convert (brew install librsvg).
  */
@@ -44,7 +44,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.
       <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.18"/>
     </filter>
   </defs>
-  <rect x="100" y="100" width="824" height="824" rx="186" fill="white" filter="url(#shadow)"/>
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="#171819" filter="url(#shadow)"/>
   <image x="100" y="100" width="824" height="824" clip-path="url(#tile)" xlink:href="data:image/jpeg;base64,${artwork}"/>
 </svg>\n`;
 const svgPath = path.join(out, 'icon.svg');

@@ -360,12 +360,10 @@ struct ConnectionView: View {
         Form {
             Section {
                 VStack(alignment: .leading, spacing: 12) {
-                    // Turn the original white paper into transparency and tint the ink for either appearance.
-                    Rectangle().fill(.primary).frame(width: 56, height: 56)
-                        .mask {
-                            Image("CentcomLogo").resizable().scaledToFit()
-                                .colorInvert().luminanceToAlpha()
-                        }.accessibilityHidden(true)
+                    Image("CentcomLogo").renderingMode(.original).resizable().scaledToFit()
+                        .frame(width: 56, height: 56)
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .accessibilityHidden(true)
                     Text(workspace.isConfigured ? "One shared workspace" : "Your work, with you.").font(.title.bold())
                     Text("Connect to the same CENTCOM server you use on your Mac. Projects, tasks and comments stay together.").foregroundStyle(.secondary)
                 }.padding(.vertical)
