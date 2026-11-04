@@ -111,6 +111,8 @@ struct TaskDetailView: View {
     @State private var detail: TicketDetail?
     private var ticket: Ticket? { workspace.tickets.first { $0.id == (detail?.ticket.id ?? id) } ?? detail?.ticket }
     @State private var commenting = false
+    @State private var editingComment: ActivityEvent?
+    @State private var deletingComment: ActivityEvent?
     @State private var showingProperties = false
     var body: some View {
         Group {
@@ -166,7 +168,21 @@ struct TaskDetailView: View {
                         }
                         Divider()
                         Text("Activity").font(.headline)
-                        ForEach(mergedEvents()) { EventRow(event: $0, expanded: true) }
+                        ForEach(mergedEvents()) { event in
+                            EventRow(event: event, expanded: true)
+                                .contextMenu {
+                                    if workspace.canChange(event) {
+                                        Button("Edit", systemImage: "pencil") { editingComment = event }
+                                        Button("Delete", systemImage: "trash", role: .destructive) { deletingComment = event }
+                                    }
+                                }
+                                .accessibilityActions {
+                                    if workspace.canChange(event) {
+                                        Button("Edit comment") { editingComment = event }
+                                        Button("Delete comment") { deletingComment = event }
+                                    }
+                                }
+                        }
                         if let error { Text(error).foregroundStyle(.red) }
                     }.padding(.horizontal, 22).padding(.vertical, 16)
                 }
@@ -188,6 +204,15 @@ struct TaskDetailView: View {
                 .sheet(isPresented: $showingProperties, onDismiss: { Task { await load() } }) { TaskPropertiesEditor(ticket: ticket) }
                 .sheet(isPresented: $editing, onDismiss: { Task { await load() } }) { TaskEditor(ticket: ticket) }
                 .sheet(isPresented: $commenting, onDismiss: { Task { await load() } }) { CommentComposer(ticket: ticket) }
+                .sheet(item: $editingComment, onDismiss: { Task { await load() } }) { CommentComposer(ticket: ticket, editing: $0) }
+                .confirmationDialog("Delete this comment?", isPresented: Binding(get: { deletingComment != nil }, set: { if !$0 { deletingComment = nil } }), titleVisibility: .visible, presenting: deletingComment) { event in
+                    Button("Delete", role: .destructive) {
+                        Task {
+                            do { try await workspace.deleteComment(event, on: ticket.id); await load() }
+                            catch { self.error = error.localizedDescription }
+                        }
+                    }
+                } message: { _ in Text("Its text is erased for good. The thread keeps a note that it was deleted.") }
             } else { ContentUnavailableView("Task unavailable", systemImage: "doc.text.magnifyingglass", description: Text(error ?? "Refresh to try again.")) }
         }.navigationBarTitleDisplayMode(.inline)
         .task { await load() }
@@ -195,7 +220,8 @@ struct TaskDetailView: View {
     }
     private func mergedEvents() -> [ActivityEvent] {
         var events = Dictionary((detail?.activity ?? []).map { ($0.id, $0) }, uniquingKeysWith: { _, b in b })
-        for event in workspace.activity where event.ticket == id { events[event.id] = event }
+        // Whichever copy saw the later change wins, so an edit or deletion is never undone by a stale cache.
+        for event in workspace.activity where event.ticket == id && (events[event.id].map { $0.lastChange < event.lastChange } ?? true) { events[event.id] = event }
         return events.values.sorted { $0.ts > $1.ts }
     }
     private func load() async {
@@ -325,9 +351,16 @@ struct CommentComposer: View {
     @Environment(Workspace.self) private var workspace
     @Environment(\.dismiss) private var dismiss
     let ticket: Ticket
-    @State private var text = ""
+    /// The comment being edited; nil writes a new one.
+    let editing: ActivityEvent?
+    @State private var text: String
     @State private var busy = false
     @State private var error: String?
+    init(ticket: Ticket, editing: ActivityEvent? = nil) {
+        self.ticket = ticket
+        self.editing = editing
+        _text = State(initialValue: editing?.body ?? "")
+    }
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
@@ -336,10 +369,10 @@ struct CommentComposer: View {
                     if let error { Text(error).foregroundStyle(.red).font(.footnote) }
                 }.padding(20)
             }
-                .markdownKeyboardToolbar().navigationTitle("Comment").navigationBarTitleDisplayMode(.inline)
+                .markdownKeyboardToolbar().navigationTitle(editing == nil ? "Comment" : "Edit comment").navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() }.disabled(busy) }
-                    ToolbarItem(placement: .confirmationAction) { Button("Post") { busy = true; Task { defer { busy = false }; do { try await workspace.comment(on: ticket.id, body: text); dismiss() } catch { self.error = error.localizedDescription } } }.disabled(busy || text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
+                    ToolbarItem(placement: .confirmationAction) { Button(editing == nil ? "Post" : "Save") { busy = true; Task { defer { busy = false }; do { if let editing { try await workspace.editComment(editing, on: ticket.id, body: text) } else { try await workspace.comment(on: ticket.id, body: text) }; dismiss() } catch { self.error = error.localizedDescription } } }.disabled(busy || text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) }
                 }.interactiveDismissDisabled(busy)
         }
     }

@@ -177,6 +177,12 @@ export interface ActivityEvent {
   changes?: Record<string, [unknown, unknown]>;
   /** `agent.instructions_changed`: whose instructions. */
   target?: string;
+  /** `ticket.comment`: when and by whom the body was last replaced. The old text is not kept. */
+  editedAt?: number;
+  editedBy?: string;
+  /** `ticket.comment`: a deleted comment keeps its place, author and time; its body is gone. */
+  deletedAt?: number;
+  deletedBy?: string;
 }
 
 /* ───────────────────────── Agents ───────────────────────── */
@@ -347,7 +353,8 @@ export type ServerEvent =
   | { type: 'doc'; path: string; mtime: number; deleted?: boolean }
   | { type: 'ticket'; id: string; deleted?: boolean }
   | { type: 'project'; slug: string; deleted?: boolean }
-  | { type: 'activity'; event: ActivityEvent }
+  // `replaced`: an existing event changed in place (a comment edited or deleted), not a new one.
+  | { type: 'activity'; event: ActivityEvent; replaced?: boolean }
   | { type: 'agents' }
   | { type: 'agent'; id: string }; // one agent's home (profile / deliverables) changed
 
@@ -417,6 +424,8 @@ export interface ServerInfo {
   remote: boolean;
   links: LinkInfo[];
   user: VaultUser;
+  /** Who is asking: the agent a named token writes as (null = any) and whether it is the owner. */
+  caller?: { agent: string | null; owner: boolean };
 }
 
 export interface ApiError {

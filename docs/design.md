@@ -64,6 +64,8 @@ Activity's actor means the person or agent who made the event, including histori
 
 A change to an agent's instructions (`agent.instructions_changed`) is the one Activity event styled as an alert, because agents act on what it changed: a shield icon and danger-colored verb on Mac (`.feed-row[data-alert]` in [`ActivityFeed.tsx`](../src/views/ActivityFeed.tsx)), with a tinted row when one agent changed another's; `exclamationmark.shield.fill` and red text in `EventRow` on iOS. Both open the agent's home. Do not reuse the alert treatment for ordinary events.
 
+A comment's author, or the owner, can edit or delete it. Both clients decide this from `ServerInfo.caller` and show nothing to anyone else. On Mac the actions are in a `MoreH` menu in the comment card's header: Edit swaps the card for an editor with Cancel and Save, and Delete asks first through `confirm` ([`CommentCard` in `ActivityFeed.tsx`](../src/views/ActivityFeed.tsx)). On iOS they are in the row's context menu, with matching VoiceOver actions: Edit opens `CommentComposer` with the text, and Delete uses a confirmation dialog. An edited comment shows a quiet "edited" ("Edited" on iOS). A deleted one stays in place as italic secondary text, "Comment deleted", plus "by <name>" when someone else deleted it. Both clients use the same wording for the delete confirmation.
+
 Search stays at the top of native pages using `.pageSearch`, above the custom bottom page bar. Advanced inventory filters belong in a disclosure panel on desktop and a native sheet on iOS. Raw file paths and device reports stay in their existing disclosures.
 
 ## Extending the library

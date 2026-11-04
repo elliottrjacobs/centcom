@@ -23,7 +23,7 @@ import { fileKind, relBasename, resolveVaultPath, vaultContentType } from './pat
 import { createProject, deleteProject, listProjects, requireProject, toApiProject, updateProject } from './projects.ts';
 import { reconcileFromDisk } from './reconcile.ts';
 import { search } from './search.ts';
-import { commentOnTicket, createTicket, deleteTicket, getTicketDetail, listTickets, updateTicket } from './tickets.ts';
+import { commentOnTicket, createTicket, deleteComment, deleteTicket, editComment, getTicketDetail, listTickets, updateTicket, type CommentGuard } from './tickets.ts';
 import { listTrash, purgeTrash, restoreFromTrash } from './trash.ts';
 
 export const MAX_JSON_BYTES = 5 * 1024 * 1024;
@@ -131,6 +131,7 @@ const updateTicketSchema = z.object({
 });
 
 const commentSchema = z.object({ device: z.string().max(100).optional(), body: z.string(), agent: agentField });
+const commentEditSchema = z.object({ body: z.string(), agent: agentField });
 
 const projectStatus = z.enum(PROJECT_STATUSES);
 const createProjectSchema = z.object({
@@ -239,6 +240,12 @@ function ticketIdParam(c: Context): string {
   return id;
 }
 
+function commentIdParam(c: Context): string {
+  const id = c.req.param('commentId') ?? '';
+  if (!id || id.length > 100 || id.includes('\0')) throw invalid('Invalid comment id.');
+  return id;
+}
+
 /* ───────────────────────── App ───────────────────────── */
 
 export interface AppDeps {
@@ -336,6 +343,13 @@ export function createApp({ ctx, info, reloadLinks, connection, containsToken, t
     if (confinedTo(c) === null) return;
     allowProject(c, ctx.index.findTicket(id)?.project ?? null);
   };
+  /** A comment is changed by the token it was written as, or by the owner; nobody else. */
+  const commentGuard = (c: Context): CommentGuard => {
+    const p = principal(c);
+    return (author) => {
+      if (!p.owner && p.agent !== author) throw forbidden(`Only ${author} or the owner can change this comment.`);
+    };
+  };
   const vaultWide = (c: Context): void => {
     if (confinedTo(c) !== null) throw forbidden(`This token is limited to ${(confinedTo(c) ?? []).join(', ')} and cannot use ${c.req.method} ${c.req.path}.`);
   };
@@ -370,7 +384,10 @@ export function createApp({ ctx, info, reloadLinks, connection, containsToken, t
 
   /* ── Meta ── */
   app.get('/api/health', (c) => c.json({ ok: true }));
-  app.get('/api/info', (c) => c.json(info()));
+  app.get('/api/info', (c) => {
+    const p = verdictOf(c)?.principal;
+    return c.json(p ? { ...info(), caller: { agent: p.agent, owner: p.owner } } : info());
+  });
   app.get('/api/connection', (c) => {
     if (!verdictOf(c)?.loopback || !connection) throw forbidden('Connection credentials are available only on this Mac.');
     return c.json(connection());
@@ -547,6 +564,17 @@ export function createApp({ ctx, info, reloadLinks, connection, containsToken, t
     const input = await body(c, commentSchema);
     allowTicket(c, ticketIdParam(c));
     return c.json(await commentOnTicket(ctx, ticketIdParam(c), input.body, actor(c, input.agent), input.device), 201);
+  });
+
+  app.patch('/api/tickets/:id/comments/:commentId', async (c) => {
+    const input = await body(c, commentEditSchema);
+    allowTicket(c, ticketIdParam(c));
+    return c.json(await editComment(ctx, ticketIdParam(c), commentIdParam(c), input.body, actor(c, input.agent), commentGuard(c)));
+  });
+
+  app.delete('/api/tickets/:id/comments/:commentId', async (c) => {
+    allowTicket(c, ticketIdParam(c));
+    return c.json(await deleteComment(ctx, ticketIdParam(c), commentIdParam(c), actor(c, c.req.query('by') ?? c.req.query('agent'), 'by'), commentGuard(c)));
   });
 
   /* ── Projects ── */

@@ -132,7 +132,7 @@ primitive on this server is a prompt-injection primitive against all of them.
   Inbox/INB-<n>.md          tickets with no project
   .centcom/counters.json    { "<KEY>": lastNumber }
   .centcom/agents.json      Agent[]
-  .centcom/activity/YYYY-MM.jsonl   append-only ActivityEvent log
+  .centcom/activity/YYYY-MM.jsonl   ActivityEvent log; append-only except comment edits and deletes
   .trash/<epochms>-<name>   soft deletes (+ `<same>.json` with { originalPath })
 ```
 
@@ -261,6 +261,19 @@ Rules:
 - Every create/update/comment/delete appends an `ActivityEvent` and touches the
   acting agent's `lastSeen`. Unknown agent ids are auto-registered
   (name = title-cased id, deterministic color from a fixed palette, kind `agent`).
+
+### Changing comments
+
+A comment is the one event that can change after it is written, so a correction or a leak
+can be taken back. Editing or deleting rewrites that line of its month file in place
+(`ActivityLog.replace`: atomic, serialised with appends). The old text is not kept
+anywhere, and no extra event is appended. The comment keeps its id, `ts`, author and
+device and records who changed it: `editedAt` / `editedBy`, or, on delete, `deletedAt` /
+`deletedBy` with `body` removed. Only the comment's author (a named token bound to that
+agent) or the owner may change it; project-confined tokens are also held to their projects.
+A change is pushed as `{ type: 'activity', event, replaced: true }` so clients update the
+event where it is. `/api/info` reports `caller: { agent, owner }` so clients offer the
+actions only where they will succeed.
 - Writes are atomic: temp file in the same dir, then `rename`.
 
 Seed agents: the configured `user` (human), `claude-code`, `codex`, `chatgpt`, `grok`, `cursor`.
@@ -291,6 +304,8 @@ An existing roster that lacks the configured user gains them as a human on load.
 | `PATCH /api/tickets/:id` | `UpdateTicketInput` → `Ticket` |
 | `DELETE /api/tickets/:id?by=` | soft delete → `{ ok }` |
 | `POST /api/tickets/:id/comments` | `{ body, agent }` → `ActivityEvent` |
+| `PATCH /api/tickets/:id/comments/:commentId` | `{ body, agent? }` → the same `ActivityEvent` with the new `body`, `editedAt` and `editedBy`. See *Changing comments* |
+| `DELETE /api/tickets/:id/comments/:commentId?by=` | tombstone: the event keeps its id, author and time, loses `body`, gains `deletedAt` / `deletedBy` → `{ ok }` (again: no-op) |
 | `GET /api/projects` | `Project[]` |
 | `POST /api/projects` | `CreateProjectInput` → `Project` (creates section folders) |
 | `GET /api/projects/:slug` | `Project` |
@@ -429,7 +444,7 @@ One tool set in `mcp/tools.ts`, implemented as a thin client over the REST API
 Tools (all take/return JSON text; every mutating tool requires an `agent` id so
 the work is attributed): `centcom_guide`, `list_projects`, `get_project`,
 `list_tickets`, `get_ticket`, `create_ticket`, `update_ticket`, `comment_on_ticket`,
-`list_skills`, `get_skill`, `search`, `list_folder`, `read_doc`, `write_doc`,
+`edit_comment` / `delete_comment` (`agent`, ticket `id`, `comment` = the event id), `list_skills`, `get_skill`, `search`, `list_folder`, `read_doc`, `write_doc`,
 `get_taste` (returns Taste docs + image paths/sidecar notes, optional `tag`/`folder`),
 `save_bookmark` (`agent`, `url`; optional `title`, `note`, `tags`, `folder`),
 `recent_activity`, `agent_home`, `agent_profile_upsert`, `agent_deliverable_add`. `centcom_guide` returns the vault's `AGENTS.md`, which asks agents to save the
@@ -447,6 +462,8 @@ centcom ticket show <ID>
 centcom ticket update <ID> [--status S] [--priority N] [--agent A] [--title T] [--project P]
 centcom ticket start|review|done|cancel <ID>        # status shortcuts
 centcom ticket comment <ID> <text…>
+centcom ticket edit-comment <ID> <COMMENT> <text…>  # comment ids are shown by `ticket show`
+centcom ticket delete-comment <ID> <COMMENT>
 centcom project list | create --name N [--key K]
 centcom skill list [--project P] | show <name> [--project P]
 centcom doc ls [path] | read <path> | write <path> (--body B | --body-file F | stdin)

@@ -39,7 +39,7 @@ CENTCOM is a single-owner server. One person runs it on their own computer, and 
 ### What it does not protect against
 
 - **Prompt injection through content.** Vault content is untrusted input to every agent that reads it. Scoped tokens and authorized instruction writes shrink what a compromised or misled agent can do; they do not stop an agent from reading a poisoned ticket and acting on it. The human stays the approver of instruction changes.
-- **A malicious token holder within their scopes.** A token with `write` can create, edit and delete tickets and documents (deletions go to a recoverable Trash).
+- **A malicious token holder within their scopes.** A token with `write` can create, edit and delete tickets and documents (deletions go to a recoverable Trash). It can edit or delete only its own agent's comments; those changes are permanent and recorded on the comment. The owner can change any comment.
 - **Cross-site scripting in the UI.** The session cookie is `HttpOnly`, but script running in the UI origin can still make authenticated requests. The CSP, `nosniff`, sandboxed raw files and patched dependencies are what hold that line.
 
 Nothing here has been penetration-tested by a third party yet. If you break it, please tell us using the process above.

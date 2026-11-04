@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import type { ActivityEvent, TicketPriority, TicketStatus } from '@shared/types';
 import { MarkdownEditor } from '../editor/MarkdownEditor';
+import { api } from '../lib/api';
 import { PRIORITY_LABEL, STATUS_LABEL, clockTime, fullDate, relTime, stripExt, basename } from '../lib/format';
 import { href, parse, routeForPath } from '../lib/router';
 import { agentById, useStore } from '../lib/store';
 import { StatusIcon } from '../ui/glyphs';
 import { AgentAvatar } from '../ui/pickers';
-import { ShieldAlert } from '../ui/icons';
+import { Edit, MoreH, ShieldAlert, Trash } from '../ui/icons';
+import { Menu, Popover, confirm, toastError, usePopover } from '../ui/overlays';
 
 /** `['instructions', 'skills']` → `instructions and skills`. */
 function instructionFields(changes: ActivityEvent['changes']): string {
@@ -63,8 +66,97 @@ export function describe(ev: ActivityEvent, agentName: (id: unknown) => string):
   }
 }
 
+/** One comment in a ticket's thread; its author or the owner can edit or delete it. */
+function CommentCard({ ev, docPath, ticketId, onChanged }: { ev: ActivityEvent; docPath: string; ticketId?: string | undefined; onChanged?: (() => void) | undefined }) {
+  const agents = useStore((s) => s.agents);
+  const caller = useStore((s) => s.info?.caller);
+  const more = usePopover();
+  const [draft, setDraft] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const agent = agentById(agents, ev.agent);
+  const name = (id: string | undefined) => (id ? (agentById(agents, id)?.name ?? id) : 'someone');
+  const deleted = ev.deletedAt !== undefined;
+  const canChange = ticketId !== undefined && !deleted && !!caller && (caller.owner || caller.agent === ev.agent);
+
+  const save = async () => {
+    const body = draft?.trim();
+    if (!body || busy || !ticketId) return;
+    setBusy(true);
+    try {
+      await api.editComment(ticketId, ev.id, body);
+      setDraft(null);
+      onChanged?.();
+    } catch (err) {
+      toastError(err);
+    } finally {
+      setBusy(false);
+    }
+  };
+  const remove = async () => {
+    if (!ticketId) return;
+    const ok = await confirm({ title: 'Delete this comment?', body: 'Its text is erased for good. The thread keeps a note that it was deleted.', confirmLabel: 'Delete', danger: true });
+    if (!ok) return;
+    try {
+      await api.deleteComment(ticketId, ev.id);
+      onChanged?.();
+    } catch (err) {
+      toastError(err);
+    }
+  };
+
+  return (
+    <li className="tl-comment" data-deleted={deleted || undefined}>
+      <div className="tl-comment-head">
+        <AgentAvatar agent={agent} size={20} />
+        <span className="tl-agent">{agent?.name ?? ev.agent}</span>{ev.device && <span className="activity-device"> on {ev.device}</span>}
+        {ev.editedAt !== undefined && !deleted && (
+          <span className="tl-edited" title={`Edited by ${name(ev.editedBy)}, ${fullDate(ev.editedAt)}`}>
+            edited
+          </span>
+        )}
+        <time className="tl-time" title={fullDate(ev.ts)}>
+          {relTime(ev.ts)}
+        </time>
+        {canChange && draft === null && (
+          <button className="icon-btn" title="Comment actions" aria-label="Comment actions" onClick={(e) => more.open(e.currentTarget)}>
+            <MoreH size={14} />
+          </button>
+        )}
+      </div>
+      {deleted ? (
+        <p className="tl-comment-deleted">Comment deleted{ev.deletedBy && ev.deletedBy !== ev.agent ? ` by ${name(ev.deletedBy)}` : ''}</p>
+      ) : draft !== null ? (
+        <>
+          <MarkdownEditor value={ev.body ?? ''} onChange={setDraft} onSubmit={() => void save()} docPath={docPath} toolbar={false} compact autoFocus />
+          <div className="comment-actions comment-actions-end">
+            <button className="btn btn-ghost btn-sm" disabled={busy} onClick={() => setDraft(null)}>
+              Cancel
+            </button>
+            <button className="btn btn-primary btn-sm" disabled={busy || !draft.trim()} onClick={() => void save()}>
+              Save
+            </button>
+          </div>
+        </>
+      ) : (
+        <MarkdownEditor key={ev.editedAt ?? 0} value={ev.body ?? ''} onChange={() => {}} docPath={docPath} readOnly compact toolbar={false} />
+      )}
+      {more.anchor && (
+        <Popover anchor={more.anchor} onClose={more.close} className="popover-menu" align="end">
+          <Menu
+            onClose={more.close}
+            items={[
+              { id: 'edit', label: 'Edit', icon: <Edit size={14} />, onSelect: () => setDraft(ev.body ?? '') },
+              { id: 'delete', label: 'Delete', icon: <Trash size={14} />, danger: true, separatorBefore: true, onSelect: () => void remove() },
+            ]}
+          />
+        </Popover>
+      )}
+    </li>
+  );
+}
+
 /** Timeline inside a ticket: changes as quiet one-liners, comments as cards. */
-export function TicketTimeline({ events, docPath }: { events: ActivityEvent[]; docPath: string }) {
+export function TicketTimeline({ events, docPath, ticketId, onChanged }: { events: ActivityEvent[]; docPath: string; ticketId?: string; onChanged?: () => void }) {
   const agents = useStore((s) => s.agents);
   const name = (id: unknown) => agentById(agents, String(id))?.name ?? String(id);
   const ordered = [...events].sort((a, b) => a.ts - b.ts);
@@ -72,20 +164,7 @@ export function TicketTimeline({ events, docPath }: { events: ActivityEvent[]; d
     <ol className="timeline">
       {ordered.map((ev) => {
         const agent = agentById(agents, ev.agent);
-        if (ev.type === 'ticket.comment') {
-          return (
-            <li key={ev.id} className="tl-comment">
-              <div className="tl-comment-head">
-                <AgentAvatar agent={agent} size={20} />
-                <span className="tl-agent">{agent?.name ?? ev.agent}</span>{ev.device && <span className="activity-device"> on {ev.device}</span>}
-                <time className="tl-time" title={fullDate(ev.ts)}>
-                  {relTime(ev.ts)}
-                </time>
-              </div>
-              <MarkdownEditor value={ev.body ?? ''} onChange={() => {}} docPath={docPath} readOnly compact toolbar={false} />
-            </li>
-          );
-        }
+        if (ev.type === 'ticket.comment') return <CommentCard key={ev.id} ev={ev} docPath={docPath} ticketId={ticketId} onChanged={onChanged} />;
         const status = ev.changes?.status?.[1] as TicketStatus | undefined;
         return (
           <li key={ev.id} className="tl-event">
@@ -150,7 +229,7 @@ export function FeedRow({ ev }: { ev: ActivityEvent }) {
           {isTicket && ev.ticket && <span className="ticket-id mono tnum">{ev.ticket}</span>}
           <span className="feed-subject truncate">{subject}</span>
         </div>
-        {ev.type === 'ticket.comment' && ev.body && <div className="feed-quote">{previewOf(ev.body)}</div>}
+        {ev.type === 'ticket.comment' && (ev.deletedAt !== undefined ? <div className="feed-quote feed-quote-muted">Comment deleted</div> : ev.body && <div className="feed-quote">{previewOf(ev.body)}</div>)}
       </div>
       <time className="feed-time tnum" title={fullDate(ev.ts)}>
         {clockTime(ev.ts)}

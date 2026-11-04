@@ -313,6 +313,7 @@ struct EventRow: View {
                         else { Image(systemName: "tray").foregroundStyle(.secondary) }
                     }
                     Text(expanded ? workspace.agentName(event.agent) : event.isInstructionChange ? "Instructions" : workspace.projectName(for: event)).fontWeight(.medium)
+                    if event.isEdited { Text("Edited").foregroundStyle(.tertiary) }
                 }
                 Spacer(minLength: 8)
                 Text(event.date, style: .relative).foregroundStyle(.tertiary)
@@ -324,6 +325,9 @@ struct EventRow: View {
                 let whose = event.target == event.agent ? "its own instructions" : "the instructions of \(workspace.agentName(event.target ?? event.subject ?? "an agent"))"
                 Text("Changed \(whose)").font(.subheadline.weight(.semibold)).foregroundStyle(.red)
                     .lineLimit(3).fixedSize(horizontal: false, vertical: true)
+            } else if event.isDeleted {
+                let by = event.deletedBy.flatMap { $0 == event.agent ? nil : workspace.agentName($0) }
+                Text(by.map { "Comment deleted by \($0)" } ?? "Comment deleted").font(.subheadline).italic().foregroundStyle(.secondary)
             } else if let body = event.body {
                 if expanded {
                     MarkdownView(text: .constant(body), readOnly: true)
@@ -335,7 +339,7 @@ struct EventRow: View {
                 Text("\(event.type.replacingOccurrences(of: "ticket.", with: "").capitalized) \(event.ticket ?? "") · \(event.subject ?? "")")
                     .font(.subheadline.weight(.regular)).foregroundStyle(.primary).lineLimit(3).fixedSize(horizontal: false, vertical: true)
             }
-            if event.body != nil, !expanded, let ticket = event.ticket {
+            if event.body != nil || event.isDeleted, !expanded, let ticket = event.ticket {
                 Text(ticket).font(.caption2.monospaced()).foregroundStyle(.tertiary)
             }
         }.padding(.vertical, 8).accessibilityElement(children: .combine)

@@ -129,6 +129,10 @@ export class CentcomClient {
   updateTicket = (id: string, input: UpdateTicketInput) => this.request<Ticket>('PATCH', `/api/tickets/${encodeURIComponent(id)}`, { json: { ...input, device: input.device ?? this.device } });
   comment = (id: string, body: string, agent: string, device?: string) =>
     this.request<ActivityEvent>('POST', `/api/tickets/${encodeURIComponent(id)}/comments`, { json: { body, agent, device: device ?? this.device } });
+  editComment = (id: string, commentId: string, body: string, agent: string) =>
+    this.request<ActivityEvent>('PATCH', `/api/tickets/${encodeURIComponent(id)}/comments/${encodeURIComponent(commentId)}`, { json: { body, agent } });
+  deleteComment = (id: string, commentId: string, agent: string) =>
+    this.request<{ ok: true }>('DELETE', `/api/tickets/${encodeURIComponent(id)}/comments/${encodeURIComponent(commentId)}`, { query: { by: agent } });
 
   listProjects = () => this.request<Project[]>('GET', '/api/projects');
   getProject = (ref: string) => this.request<Project>('GET', `/api/projects/${encodeURIComponent(ref)}`);

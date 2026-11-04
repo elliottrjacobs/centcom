@@ -93,6 +93,7 @@ final class Workspace {
     var agents: [Agent] = []
     var activity: [ActivityEvent] = []
     var userID = "me"
+    var caller: ServerInfo.Caller?
     var connection: Connection?
     var online = false
     var loading = false
@@ -132,6 +133,7 @@ final class Workspace {
         revision += 1
         connection = candidate
         userID = info.user.id
+        caller = info.caller
         (tickets, projects, agents, activity) = snapshot
         online = true
         error = nil
@@ -153,6 +155,7 @@ final class Workspace {
             let result = try await (info, tasks, groups, people, events, catalog)
             guard started == revision else { return }
             userID = result.0.user.id
+            caller = result.0.caller
             tickets = result.1; projects = result.2; agents = result.3; activity = result.4; labels = result.5
             online = true; error = nil; lastSynced = Date()
         } catch {
@@ -186,6 +189,24 @@ final class Workspace {
         let event: ActivityEvent = try await client.request("tickets/\(id)/comments", method: "POST", body: ["body": body, "agent": userID])
         revision += 1
         activity.insert(event, at: 0)
+    }
+    /// A comment's author can change it, and the owner can change any; the server enforces the same.
+    func canChange(_ event: ActivityEvent) -> Bool {
+        guard event.type == "ticket.comment", !event.isDeleted, let caller else { return false }
+        return caller.owner || caller.agent == event.agent
+    }
+    func editComment(_ event: ActivityEvent, on id: String, body: String) async throws {
+        guard let client else { throw ClientError.message("Connect to your server first.") }
+        let _: ActivityEvent = try await client.request("tickets/\(id)/comments/\(event.id)", method: "PATCH", body: ["body": body, "agent": userID])
+        revision += 1
+        await refresh()
+    }
+    func deleteComment(_ event: ActivityEvent, on id: String) async throws {
+        guard let client else { throw ClientError.message("Connect to your server first.") }
+        struct Result: Decodable { let ok: Bool }
+        let _: Result = try await client.request("tickets/\(id)/comments/\(event.id)", method: "DELETE", query: [URLQueryItem(name: "by", value: userID)])
+        revision += 1
+        await refresh()
     }
     @discardableResult func saveLabel(project: String?, label: ProjectLabel? = nil, name: String, color: String, deleted: Bool = false) async throws -> ProjectLabel {
         guard let client else { throw ClientError.message("Connect to your server first.") }

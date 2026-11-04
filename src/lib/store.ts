@@ -156,7 +156,12 @@ function handle(ev: ServerEvent) {
       void refreshTree();
       break;
     case 'activity':
-      set({ activity: [ev.event, ...state.activity.filter((a) => a.id !== ev.event.id)].slice(0, 300) });
+      // An edited or deleted comment changes where it is; only new events go to the top.
+      set({
+        activity: ev.replaced
+          ? state.activity.map((a) => (a.id === ev.event.id ? ev.event : a))
+          : [ev.event, ...state.activity.filter((a) => a.id !== ev.event.id)].slice(0, 300),
+      });
       break;
     case 'agents':
       void refreshAgents();

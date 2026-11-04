@@ -20,7 +20,8 @@ export function TicketDetail({ id }: { id: string }) {
   const [missing, setMissing] = useState(false);
   // Any store change touching this ticket (SSE-driven) triggers a refetch of the full detail.
   const live = useStore((s) => s.tickets.find((t) => t.id === id));
-  const activityTick = useStore((s) => s.activity.find((a) => a.ticket === id)?.id);
+  // New events and comments edited or deleted elsewhere both refetch.
+  const activityTick = useStore((s) => s.activity.filter((a) => a.ticket === id).map((a) => `${a.id}:${a.editedAt ?? ''}:${a.deletedAt ?? ''}`).join());
   const project = useStore((s) => s.projects.find((p) => p.slug === (detail?.ticket.project ?? live?.project)) ?? null);
   const more = usePopover();
   const lastDevice = detail?.activity.filter(e => e.device).sort((a,b) => b.ts - a.ts)[0];
@@ -137,7 +138,7 @@ export function TicketDetail({ id }: { id: string }) {
               <div className="section-head">
                 <h3>Activity</h3>
               </div>
-              <TicketTimeline events={detail.activity} docPath={t.path} />
+              <TicketTimeline events={detail.activity} docPath={t.path} ticketId={t.id} onChanged={load} />
               <CommentBox ticketId={t.id} docPath={t.path} onPosted={load} />
             </section>
           </div>

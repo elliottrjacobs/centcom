@@ -410,14 +410,67 @@ export async function deleteTicket(ctx: Ctx, idInput: string, byInput: unknown, 
   });
 }
 
+function commentBody(input: unknown): string {
+  if (typeof input !== 'string' || !input.trim()) throw invalid('body is required.');
+  if (input.length > 100_000) throw invalid('Comment is too long (max 100,000 characters).');
+  return input.trim();
+}
+
 export async function commentOnTicket(ctx: Ctx, idInput: string, bodyInput: unknown, agentInput: unknown, deviceInput?: unknown): Promise<ActivityEvent> {
   const origin = reportedDevice(deviceInput);
-  if (typeof bodyInput !== 'string' || !bodyInput.trim()) throw invalid('body is required.');
-  if (bodyInput.length > 100_000) throw invalid('Comment is too long (max 100,000 characters).');
+  const body = commentBody(bodyInput);
   const agent = actingAgent(ctx, agentInput);
   const ticket = requireTicket(ctx, idInput);
   // A comment is the whole point of the request, so a failure to persist it is an error (not "safe").
-  const event = await recordActivity(ctx, { ...origin, agent, type: 'ticket.comment', ticket: ticket.id, path: ticket.path, project: ticket.project, subject: ticket.title, body: bodyInput.trim() });
+  const event = await recordActivity(ctx, { ...origin, agent, type: 'ticket.comment', ticket: ticket.id, path: ticket.path, project: ticket.project, subject: ticket.title, body });
   ctx.hub.broadcast({ type: 'ticket', id: ticket.id });
   return event;
+}
+
+/** Throws unless the caller may change a comment written by `author` (its author, or the owner). */
+export type CommentGuard = (author: string) => void;
+
+/** A comment on this ticket, under any id the ticket has had, or 404. */
+async function requireComment(ctx: Ctx, ticket: TicketRecord, commentId: string): Promise<ActivityEvent> {
+  const comment = (await ctx.activity.forTickets([ticket.id, ...ticket.previousIds])).find((e) => e.id === commentId && e.type === 'ticket.comment');
+  if (!comment) throw notFound(`Comment "${commentId}" not found on ${ticket.id}.`);
+  return comment;
+}
+
+async function replaceComment(ctx: Ctx, commentId: string, by: string, update: (current: ActivityEvent) => ActivityEvent): Promise<ActivityEvent> {
+  const event = await ctx.activity.replace(commentId, update);
+  if (!event) throw notFound(`Comment "${commentId}" not found.`);
+  ctx.agents.touch(by, Date.now());
+  ctx.hub.broadcast({ type: 'activity', event, replaced: true });
+  return event;
+}
+
+/** Replace a comment's text in place. The old text is not kept anywhere. */
+export async function editComment(ctx: Ctx, idInput: string, commentId: string, bodyInput: unknown, byInput: unknown, guard: CommentGuard): Promise<ActivityEvent> {
+  const body = commentBody(bodyInput);
+  const by = actingAgent(ctx, byInput, 'by');
+  const comment = await requireComment(ctx, requireTicket(ctx, idInput), commentId);
+  guard(comment.agent);
+  if (comment.deletedAt !== undefined) throw notFound(`Comment "${commentId}" was deleted.`);
+  if (comment.body === body) return comment;
+  return replaceComment(ctx, commentId, by, (current) => {
+    if (current.deletedAt !== undefined) throw notFound(`Comment "${commentId}" was deleted.`);
+    return { ...current, body, editedAt: Date.now(), editedBy: by };
+  });
+}
+
+/** Delete a comment: it keeps its place, author and time in the thread, and its text is erased. */
+export async function deleteComment(ctx: Ctx, idInput: string, commentId: string, byInput: unknown, guard: CommentGuard): Promise<{ ok: true }> {
+  const by = actingAgent(ctx, byInput, 'by');
+  const comment = await requireComment(ctx, requireTicket(ctx, idInput), commentId);
+  guard(comment.agent);
+  if (comment.deletedAt !== undefined) return { ok: true };
+  await replaceComment(ctx, commentId, by, (current) => {
+    const tombstone: ActivityEvent = { ...current, deletedAt: Date.now(), deletedBy: by };
+    delete tombstone.body;
+    delete tombstone.editedAt;
+    delete tombstone.editedBy;
+    return tombstone;
+  });
+  return { ok: true };
 }

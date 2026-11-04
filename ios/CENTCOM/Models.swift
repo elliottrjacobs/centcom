@@ -89,8 +89,17 @@ struct ActivityEvent: Codable, Identifiable {
     var project: String? = nil
     /// `agent.instructions_changed`: whose instructions changed.
     var target: String? = nil
+    /// `ticket.comment`: the body was replaced (the old text is not kept), or the comment deleted.
+    var editedAt: Double? = nil
+    var editedBy: String? = nil
+    var deletedAt: Double? = nil
+    var deletedBy: String? = nil
     var date: Date { Date(timeIntervalSince1970: ts / 1000) }
     var isInstructionChange: Bool { type == "agent.instructions_changed" }
+    var isDeleted: Bool { deletedAt != nil }
+    var isEdited: Bool { editedAt != nil && deletedAt == nil }
+    /// When this event last changed: posted, edited or deleted.
+    var lastChange: Double { max(ts, editedAt ?? 0, deletedAt ?? 0) }
 }
 struct TicketDetail: Decodable {
     let ticket: Ticket
@@ -100,7 +109,10 @@ struct TicketDetail: Decodable {
 struct ServerInfo: Decodable {
     let name: String
     let user: User
+    /// Who this token is: the agent it writes as (nil = any) and whether it is the owner's.
+    var caller: Caller? = nil
     struct User: Decodable { let id: String; let name: String }
+    struct Caller: Decodable { let agent: String?; let owner: Bool }
 }
 struct APIError: Decodable { let error: String }
 

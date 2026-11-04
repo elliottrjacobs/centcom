@@ -141,6 +141,10 @@ export const api = {
     request<{ ok: true }>('DELETE', `/api/tickets/${encodeURIComponent(id)}${q({ by: me(), device: currentDevice() })}`),
   comment: (id: string, body: string) =>
     request<ActivityEvent>('POST', `/api/tickets/${encodeURIComponent(id)}/comments`, { body, agent: me(), device: currentDevice() }),
+  editComment: (id: string, commentId: string, body: string) =>
+    request<ActivityEvent>('PATCH', `/api/tickets/${encodeURIComponent(id)}/comments/${encodeURIComponent(commentId)}`, { body, agent: me() }),
+  deleteComment: (id: string, commentId: string) =>
+    request<{ ok: true }>('DELETE', `/api/tickets/${encodeURIComponent(id)}/comments/${encodeURIComponent(commentId)}${q({ by: me() })}`),
 
   labels: () => request<ProjectLabel[]>('GET', '/api/labels'),
   createLabel: (project: string | null, name: string, color: string) => request<ProjectLabel>('POST','/api/labels',{project,name,color,agent:me()}),

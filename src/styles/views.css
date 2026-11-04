@@ -503,6 +503,22 @@ section + section > .group-band {
 .tl-comment-head .tl-time {
   margin-left: auto;
 }
+.tl-comment-head .icon-btn {
+  margin: -4px -6px -4px 0;
+}
+.tl-edited {
+  font-size: var(--text-sm);
+  color: var(--text-3);
+}
+.tl-comment-deleted {
+  margin: 0;
+  color: var(--text-3);
+  font-style: italic;
+}
+.comment-actions.comment-actions-end {
+  justify-content: flex-end;
+  gap: 6px;
+}
 
 .comment-box {
   margin-top: 18px;
@@ -767,6 +783,10 @@ section + section > .group-band {
   border-left: 2px solid var(--border-strong);
   color: var(--text-2);
   line-height: 1.5;
+}
+.feed-quote-muted {
+  color: var(--text-3);
+  font-style: italic;
 }
 .feed-time {
   font-size: var(--text-sm);

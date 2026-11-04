@@ -38,6 +38,8 @@ Usage
                         [--label L ...] [--due D] [--parent ID] [--body B | --body-file F]
   centcom ticket start|review|done|cancel <ID>
   centcom ticket comment <ID> <text…>           (or pipe the comment on stdin)
+  centcom ticket edit-comment <ID> <COMMENT> <text…>   replace a comment's text (ids are in ticket show)
+  centcom ticket delete-comment <ID> <COMMENT>          erase a comment's text; it stays in the thread as deleted
 
   centcom project list
   centcom project create --name N [--key K] [--summary S]
@@ -238,7 +240,12 @@ function ticketTable(tickets: Ticket[]): string {
 
 function describeEvent(e: ActivityEvent): string {
   const when = dim(ago(e.ts));
-  if (e.type === 'ticket.comment') return `${bold(e.agent)}${e.device ? ` on ${e.device}` : ''} commented ${when}\n${(e.body ?? '').split('\n').map((l) => `    ${l}`).join('\n')}`;
+  if (e.type === 'ticket.comment') {
+    const head = `${bold(e.agent)}${e.device ? ` on ${e.device}` : ''} commented ${when} ${dim(e.id)}`;
+    if (e.deletedAt !== undefined) return `${head}\n    ${dim(`(deleted by ${e.deletedBy ?? 'unknown'} ${ago(e.deletedAt)})`)}`;
+    const edited = e.editedAt !== undefined ? ` ${dim(`(edited by ${e.editedBy ?? 'unknown'} ${ago(e.editedAt)})`)}` : '';
+    return `${head}${edited}\n${(e.body ?? '').split('\n').map((l) => `    ${l}`).join('\n')}`;
+  }
   if (e.type === 'ticket.updated' && e.changes) {
     const parts = Object.entries(e.changes).map(([field, [from, to]]) => (field === 'body' ? 'description edited' : `${field}: ${fmt(from)} → ${fmt(to)}`));
     return `${bold(e.agent)}${e.device ? ` on ${e.device}` : ''} ${parts.join(', ')} ${when}`;
@@ -541,8 +548,24 @@ async function cmdTicket(args: Args): Promise<void> {
       if (json) return printJson(event);
       return out(`Commented on ${bold(event.ticket ?? id)} as ${event.agent}.`);
     }
+    case 'edit-comment': {
+      const id = need(rest[0], 'A ticket id');
+      const commentId = need(rest[1], 'A comment id (shown by `centcom ticket show`)');
+      let text = rest.slice(2).join(' ');
+      if (!text.trim()) text = (await bodyInput(args, { required: true })) ?? '';
+      const event = await client.editComment(id, commentId, text, identity(args));
+      if (json) return printJson(event);
+      return out(`Edited comment ${dim(commentId)} on ${bold(event.ticket ?? id)}.`);
+    }
+    case 'delete-comment': {
+      const id = need(rest[0], 'A ticket id');
+      const commentId = need(rest[1], 'A comment id (shown by `centcom ticket show`)');
+      const result = await client.deleteComment(id, commentId, identity(args));
+      if (json) return printJson(result);
+      return out(`Deleted comment ${dim(commentId)} on ${bold(id.toUpperCase())}.`);
+    }
     default:
-      throw new UsageError(`Unknown ticket command "${sub ?? ''}". Try: create, list, show, update, start, review, done, cancel, comment.`);
+      throw new UsageError(`Unknown ticket command "${sub ?? ''}". Try: create, list, show, update, start, review, done, cancel, comment, edit-comment, delete-comment.`);
   }
 }
 
