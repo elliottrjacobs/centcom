@@ -96,4 +96,4 @@ See [CONTRIBUTING](CONTRIBUTING.md) for how to propose changes and [SECURITY](SE
 
 ## License
 
-The code is MIT licensed; see [LICENSE](LICENSE). The CENTCOM name and logo are not covered by that license; see [NOTICE](NOTICE).
+The code is MIT licensed; see [LICENSE](LICENSE). The CENTCOM logo is not covered by that license; see [NOTICE](NOTICE).
