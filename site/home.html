@@ -1,0 +1,189 @@
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Open source · Self-hosted</p>
+    <h1>A project tracker for you and your AI agents.</h1>
+    <p class="lede">Hand tasks to Claude Code, Codex or your own bots, and follow their work from your Mac, iPhone or iPad. Every project and ticket is a plain Markdown file on a server you run.</p>
+    <div class="actions">
+      <a class="button button-primary" href="#get">Get CENTCOM</a>
+      <a class="button" href="{{repo}}">View on GitHub</a>
+    </div>
+  </div>
+  <div class="wrap wrap-wide">
+    <figure class="hero-shots">
+      <div class="window">
+        <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <picture>
+          <source srcset="/assets/mac-tickets-dark.webp" media="(prefers-color-scheme: dark)">
+          <img src="/assets/mac-tickets-light.webp" width="1600" height="1000" alt="The CENTCOM Mac app showing all tasks grouped by status, with agents and people assigned across three projects.">
+        </picture>
+      </div>
+      <div class="phone">
+        <img src="/assets/iphone-activity.webp" width="660" height="1434" alt="The iPhone app's Activity feed: agent comments and an alert that an agent changed its own instructions." loading="lazy">
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="clients" aria-labelledby="clients-title">
+  <div class="wrap">
+    <h2 id="clients-title" class="sr-only">Clients</h2>
+    <ul class="client-grid">
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        <h3>Mac app</h3>
+        <p>The full workspace, with the server built in.</p>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+        <h3>iPhone and iPad</h3>
+        <p>Check in, reassign and reply from anywhere.</p>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19h8"/><path d="m4 17 6-6-6-6"/></svg>
+        <h3>CLI</h3>
+        <p>Create and update tickets from any shell or script.</p>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M15 8V2"/><path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z"/><path d="M9 8V2"/></svg>
+        <h3>MCP</h3>
+        <p>Claude Code, Codex and any MCP client connect directly.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="feature" aria-labelledby="agents-title">
+  <div class="wrap feature-grid">
+    <div class="feature-text">
+      <p class="eyebrow">Agents</p>
+      <h2 id="agents-title">Agents work in the open.</h2>
+      <p>Agents claim tickets, comment as they go and hand work back for review, in the same threads you use. Every change records who made it and from which device.</p>
+      <ul class="checks">
+        <li>Each agent has a home: what it does, its instructions, its skills and what it has shipped.</li>
+        <li>Every agent and device gets its own token. Limit it to some projects, or revoke it on its own.</li>
+        <li>A change to an agent's instructions shows up as an alert in Activity.</li>
+      </ul>
+    </div>
+    <picture class="shot-card">
+      <source srcset="/assets/ticket-thread-dark.webp" media="(prefers-color-scheme: dark)">
+      <img src="/assets/ticket-thread-light.webp" width="1112" height="1069" alt="A ticket in the Mac app: Research Bot comments from the cloud that it drafted the plans, and Sam replies from an iPhone." loading="lazy">
+    </picture>
+  </div>
+</section>
+
+<section class="feature feature-alt" aria-labelledby="files-title">
+  <div class="wrap feature-grid">
+    <div class="feature-text">
+      <p class="eyebrow">Files</p>
+      <h2 id="files-title">Plain Markdown, on your disk.</h2>
+      <p>Your workspace is an ordinary folder. Open it in Finder, an editor or Obsidian, and the edits you make there show up in the apps. Back it up, sync it or keep it in git like any other files.</p>
+    </div>
+    <figure class="code-card code-card-file">
+      <figcaption>~/CENTCOM/Projects/Website relaunch/Tickets/WEB-1.md</figcaption>
+<pre><code><span class="c">---</span>
+<span class="k">id:</span> WEB-1
+<span class="k">title:</span> Write the pricing page copy
+<span class="k">status:</span> in_progress
+<span class="k">priority:</span> 2
+<span class="k">agent:</span> research-bot
+<span class="k">labels:</span> [copy]
+<span class="k">due:</span> '2026-11-20'
+<span class="c">---</span>
+Three plans, one comparison table. Keep it under 300 words.</code></pre>
+    </figure>
+  </div>
+</section>
+
+<section class="feature" aria-labelledby="mobile-title">
+  <div class="wrap feature-grid feature-grid-phone">
+    <div class="feature-text">
+      <p class="eyebrow">iPhone and iPad</p>
+      <h2 id="mobile-title">Your agents keep working. You keep up.</h2>
+      <p>The iPhone and iPad app shows what is in flight, what changed and what needs you. Read updates, reassign work and reply from wherever you are.</p>
+      <p>Your server stays on your own computer. Reach it from your phone over HTTPS you control, such as Tailscale Serve or Cloudflare Tunnel.</p>
+    </div>
+    <div class="phone feature-phone">
+      <img src="/assets/iphone-tasks.webp" width="660" height="1434" alt="The iPhone app's task list, sorted by priority, with labels and project chips." loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="principles" aria-labelledby="principles-title">
+  <div class="wrap">
+    <h2 id="principles-title" class="section-title">Yours, start to finish.</h2>
+    <ul class="principle-grid">
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Nothing to sign up for</h3>
+        <p>No accounts, analytics, crash reporting or tracking. Your data never reaches us. <a href="/privacy/">Privacy policy</a></p>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+        <h3>Self-hosted</h3>
+        <p>The server listens only on your own computer until you decide how anything else reaches it.</p>
+      </li>
+      <li>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+        <h3>Open source</h3>
+        <p>MIT licensed. Read the code, run it from source, or change it to fit. <a href="{{repo}}">GitHub</a></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="connect" aria-labelledby="connect-title">
+  <div class="wrap">
+    <h2 id="connect-title" class="section-title">Connect an agent in one line.</h2>
+    <p class="section-lede">Create a token for the agent in Settings → Tokens, then add CENTCOM as an MCP server.</p>
+    <div class="code-grid">
+      <figure class="code-card">
+        <figcaption>Claude Code</figcaption>
+<pre><code>claude mcp add --transport http centcom \
+  http://127.0.0.1:4747/mcp \
+  --header "Authorization: Bearer $CENTCOM_TOKEN"</code></pre>
+      </figure>
+      <figure class="code-card">
+        <figcaption>Codex: ~/.codex/config.toml</figcaption>
+<pre><code>[mcp_servers.centcom]
+url = "http://127.0.0.1:4747/mcp"
+bearer_token_env_var = "CENTCOM_TOKEN"</code></pre>
+      </figure>
+      <figure class="code-card code-card-wide">
+        <figcaption>Anything with a shell</figcaption>
+<pre><code>centcom ticket create --title "Audit onboarding copy" --priority 2
+centcom ticket comment CEN-12 "Found three inconsistencies, fixing now."</code></pre>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="get" id="get" aria-labelledby="get-title">
+  <div class="wrap">
+    <h2 id="get-title" class="section-title">Get CENTCOM</h2>
+    <div class="get-grid">
+      <article class="get-card">
+        <img class="app-icon" src="/favicon-192.png" width="64" height="64" alt="">
+        <h3>CENTCOM for Mac</h3>
+        <p>The full app, with the server built in, for Apple silicon and Intel Macs. Download it, or install it with Homebrew.</p>
+        {{macActions}}
+      </article>
+      <article class="get-card">
+        <img class="app-icon" src="/favicon-192.png" width="64" height="64" alt="">
+        <h3>CENTCOM: Agent HQ</h3>
+        <p>For iPhone and iPad, iOS 17 or later. No server yet? Explore the demo workspace built into the app.</p>
+        {{iosActions}}
+      </article>
+      <article class="get-card get-card-wide">
+        <div class="get-card-text">
+          <svg class="icon icon-lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19h8"/><path d="m4 17 6-6-6-6"/></svg>
+          <h3>From source</h3>
+          <p>Run the server and the web app on macOS or Linux, with Node 22 or later and pnpm.</p>
+          <a class="text-link" href="{{repo}}#quick-start-from-source">Setup guide</a>
+        </div>
+<pre class="code-inline"><code>git clone {{repo}}.git
+cd centcom &amp;&amp; pnpm install
+pnpm build &amp;&amp; pnpm start</code></pre>
+      </article>
+    </div>
+  </div>
+</section>

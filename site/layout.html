@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CENTCOM">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{origin}}/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0e0e10">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body class="{{bodyClass}}">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="wordmark" href="/" aria-label="CENTCOM home">CENTCOM</a>
+    <nav class="site-nav" aria-label="Main">
+      {{nav}}
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="wrap site-footer-inner">
+    <div class="site-footer-brand">
+      <span class="wordmark">CENTCOM</span>
+      <p>Made by {{publisher}}. The code is MIT licensed; the CENTCOM logo is not.</p>
+    </div>
+    <nav class="site-footer-links" aria-label="Footer">
+      <a href="/privacy/">Privacy</a>
+      <a href="/support/">Support</a>
+      <a href="{{repo}}">GitHub</a>
+      <a href="mailto:{{contact}}">{{contact}}</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -5,7 +5,7 @@ DEVELOPMENT_TEAM =
 
 // Privacy policy and support pages, shown in Settings → About (and required by App Store
 // Connect). Empty hides the links. `$()` keeps the `//` of a URL from starting a comment.
-CENTCOM_PRIVACY_URL = https:/$()/github.com/elliottrjacobs/centcom/blob/main/docs/PRIVACY.md
-CENTCOM_SUPPORT_URL = https:/$()/github.com/elliottrjacobs/centcom/blob/main/docs/SUPPORT.md
+CENTCOM_PRIVACY_URL = https:/$()/centcom.app/privacy/
+CENTCOM_SUPPORT_URL = https:/$()/centcom.app/support/
 
 #include? "Signing.xcconfig"

@@ -24,4 +24,4 @@ Everything is yours to read, copy, back up or delete with ordinary file tools. R
 
 ## Contact
 
-Questions about this policy: email [info@extendedmind.studio](mailto:info@extendedmind.studio) or open an issue in this project's GitHub repository. For security reports, see [SECURITY.md](../SECURITY.md).
+Questions about this policy: email [info@extendedmind.studio](mailto:info@extendedmind.studio) or open an issue on [GitHub](https://github.com/elliottrjacobs/centcom/issues). For security reports, see [SECURITY.md](../SECURITY.md).

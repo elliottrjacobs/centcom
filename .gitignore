@@ -3,6 +3,7 @@ dist-ui
 dist-server
 dist-cli
 dist-electron
+dist-site
 release
 .DS_Store
 *.log

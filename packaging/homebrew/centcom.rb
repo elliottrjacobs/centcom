@@ -10,7 +10,7 @@ cask "centcom" do
   url "https://github.com/elliottrjacobs/centcom/releases/download/v#{version}/CENTCOM-#{version}-#{arch}.dmg"
   name "CENTCOM"
   desc "Project and task tracker for humans and agents"
-  homepage "https://github.com/elliottrjacobs/centcom"
+  homepage "https://centcom.app"
 
   livecheck do
     url :url

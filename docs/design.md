@@ -17,6 +17,9 @@ This is the entry point for CENTCOM's interface rules and component library. Upd
 | Menus, popovers, dialogs | [`overlays.tsx`](../src/ui/overlays.tsx) | Native `Menu`, `Picker`, `.popover`, `.sheet` |
 | Task filtering | [`taskQuery.ts`](../src/lib/taskQuery.ts) | [`TaskFiltering.swift`](../ios/CENTCOM/TaskFiltering.swift) |
 | Activity filtering | [`activityQuery.ts`](../src/lib/activityQuery.ts) | [`ActivityFilters.swift`](../ios/CENTCOM/ActivityFilters.swift) |
+| Public website | [`site/`](../site), built by [`build-site.mjs`](../scripts/build-site.mjs) on the same `tokens.css` | n/a |
+
+The public website (`pnpm build:site` → `dist-site/`) is static HTML and CSS with no client JavaScript. Its privacy and support pages are rendered from [PRIVACY.md](PRIVACY.md) and [SUPPORT.md](SUPPORT.md), so edit those files, not the site. `site/site.css` adds only a larger type scale and page layout on top of the app's tokens; brand it with the "CENTCOM" wordmark and use the radar artwork only as the app icon. Download links live in [`site/config.mjs`](../site/config.mjs) and read "Coming soon" until they are set. Product screenshots show the fictional demo workspace from `scripts/make-ios-demo.ts`, never real data.
 
 ## Foundations
 

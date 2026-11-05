@@ -44,7 +44,7 @@ xcodebuild -project ios/CENTCOM.xcodeproj -scheme CENTCOM -configuration Release
 
 ## TestFlight and the App Store
 
-1. Set `DEVELOPMENT_TEAM` in `ios/Signing.xcconfig`, and `CENTCOM_PRIVACY_URL` / `CENTCOM_SUPPORT_URL` in `ios/Base.xcconfig` (they point at [PRIVACY](PRIVACY.md) and [SUPPORT](SUPPORT.md) in this repository). Both appear in Settings → About.
+1. Set `DEVELOPMENT_TEAM` in `ios/Signing.xcconfig`, and `CENTCOM_PRIVACY_URL` / `CENTCOM_SUPPORT_URL` in `ios/Base.xcconfig` (the official build uses https://centcom.app/privacy/ and https://centcom.app/support/, which the website renders from [PRIVACY](PRIVACY.md) and [SUPPORT](SUPPORT.md)). Both appear in Settings → About.
 2. Increase `CURRENT_PROJECT_VERSION` in `ios/project.yml`.
 3. `scripts/ios-archive.sh` archives a Release build and exports an App Store Connect `.ipa` to `build/ios/` (`ios/ExportOptions-AppStore.plist`). It uploads nothing.
 4. Upload with Xcode's Organizer or Transporter. For review, say in the notes that **Explore a demo workspace** shows the app without a server. The official app's TestFlight feedback and App Review contact address is `info@extendedmind.studio`.

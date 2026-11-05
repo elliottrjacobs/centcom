@@ -1,6 +1,6 @@
 # CENTCOM
 
-A project and task tracker for humans and agents, with a Mac app and a native iOS companion. Each project has **Home**, **Tasks**, and **Library** (docs, outputs, uploads, any file). Every agent has a **home**: description, operating instructions and rules, skills, and outputs (its activity plus the deliverables it reports). Capture work in the Inbox, assign it, set status and priority, and follow its discussion.
+A project and task tracker for humans and agents, with a Mac app and a native iOS companion. Website: [centcom.app](https://centcom.app). Each project has **Home**, **Tasks**, and **Library** (docs, outputs, uploads, any file). Every agent has a **home**: description, operating instructions and rules, skills, and outputs (its activity plus the deliverables it reports). Capture work in the Inbox, assign it, set status and priority, and follow its discussion.
 
 All clients use one server and the same Markdown files on disk:
 
