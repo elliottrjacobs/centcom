@@ -40,7 +40,7 @@
   "dependencies": {
     "@hono/node-server": "^2.1.5",
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "chokidar": "^5.0.0",
+    "chokidar": "^6.0.0",
     "electron-updater": "^6.8.12",
     "gray-matter": "^4.0.3",
     "hono": "^4.13.14",
