@@ -1,7 +1,7 @@
 {
   "name": "centcom",
   "productName": "CENTCOM",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "A shared project and task tracker for humans and agents.",
   "homepage": "https://github.com/elliottrjacobs/centcom",
