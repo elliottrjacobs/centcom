@@ -4,7 +4,9 @@ name: Release
 # pushed. Requires repository secrets (none of them ever appear in logs):
 #   CSC_LINK, CSC_KEY_PASSWORD       Developer ID Application certificate (.p12, base64) and its password
 #   APPLE_API_KEY_P8, APPLE_API_KEY_ID, APPLE_API_ISSUER   App Store Connect API key for notarization
-# Without them the build fails instead of shipping an ad hoc signed app.
+# Without them the build fails instead of shipping an ad hoc signed app. The repository variable
+# CENTCOM_BUNDLE_ID sets the bundle id: studio.extendedmind.centcom.desktop for the official app. A fork
+# leaves it unset and ships under the neutral default.
 
 on:
   push:
@@ -39,6 +41,7 @@ jobs:
         run: pnpm release:mac --publish always
         env:
           CENTCOM_REQUIRE_DEVELOPER_ID: '1'
+          CENTCOM_BUNDLE_ID: ${{ vars.CENTCOM_BUNDLE_ID }}
           CENTCOM_RELEASE_OWNER: ${{ github.repository_owner }}
           CENTCOM_RELEASE_REPO: ${{ github.event.repository.name }}
           CSC_LINK: ${{ secrets.CSC_LINK }}

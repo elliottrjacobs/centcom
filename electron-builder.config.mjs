@@ -34,7 +34,7 @@ console.log(`[package] signing: ${hasDeveloperId ? 'Developer ID, hardened runti
 /** @type {import('electron-builder').Configuration} */
 export default {
   // Neutral by default so a fork doesn't ship under someone else's identifier.
-  appId: env.CENTCOM_BUNDLE_ID ?? 'app.centcom.desktop',
+  appId: env.CENTCOM_BUNDLE_ID || 'app.centcom.desktop',
   productName: 'CENTCOM',
   copyright: 'Copyright © 2026 The CENTCOM authors',
   directories: { output: 'release', buildResources: 'build' },

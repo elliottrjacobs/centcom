@@ -29,6 +29,6 @@ cask "centcom" do
   zap trash: [
     "~/Library/Application Support/CENTCOM",
     "~/Library/Logs/CENTCOM",
-    "~/Library/Preferences/app.centcom.desktop.plist",
+    "~/Library/Preferences/studio.extendedmind.centcom.desktop.plist",
   ]
 end

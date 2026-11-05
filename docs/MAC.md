@@ -54,7 +54,7 @@ Packaging is `electron-builder.config.mjs`. Everything Node needs is bundled int
 - With a **Developer ID Application** certificate in the keychain (or `CSC_LINK` + `CSC_KEY_PASSWORD`), the app is signed with it under the hardened runtime, whose only exception is V8's JIT (`build/entitlements.mac.plist`). Without one it is signed ad hoc: it runs on the Mac that built it and nowhere else.
 - Notarization runs when credentials are in the environment: an App Store Connect API key (`APPLE_API_KEY` path, `APPLE_API_KEY_ID`, `APPLE_API_ISSUER`), a `notarytool` keychain profile (`APPLE_KEYCHAIN_PROFILE`), or an Apple ID (`APPLE_ID`, `APPLE_APP_SPECIFIC_PASSWORD`, `APPLE_TEAM_ID`).
 - `CENTCOM_REQUIRE_DEVELOPER_ID=1` fails the build unless both are present. The release workflow sets it.
-- The bundle id defaults to the neutral `app.centcom.desktop`; set `CENTCOM_BUNDLE_ID` for the official build. A fork must use its own.
+- The bundle id defaults to the neutral `app.centcom.desktop`; `CENTCOM_BUNDLE_ID` overrides it. The release workflow reads it from the repository variable of the same name, which is `studio.extendedmind.centcom.desktop` for the official app. A fork must use its own or leave it unset.
 
 ### Releases and updates
 
