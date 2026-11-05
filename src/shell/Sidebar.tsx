@@ -5,7 +5,6 @@ import { href, useRoute, type Route } from '../lib/router';
 import { useStore } from '../lib/store';
 import { usePersisted } from '../lib/usePersisted';
 import { Activity, BookOpen, Box, ChevronRight, Bot, Edit, Inbox, Plus, Search, Settings, Ticket, Trash, type IconComponent } from '../ui/icons';
-import { CentcomLogo } from '../ui/CentcomLogo';
 
 const INDENT = 14;
 
@@ -26,7 +25,6 @@ export function Sidebar({ onSearch, onCompose }: { onSearch: () => void; onCompo
     <aside className="sidebar">
       <div className="sidebar-head">
         <div className="brand">
-          <CentcomLogo className="brand-mark" size={22} />
           <span className="brand-name">CENTCOM</span>
         </div>
         <button className="icon-btn" title="Search  ⌘K" onClick={onSearch}>
