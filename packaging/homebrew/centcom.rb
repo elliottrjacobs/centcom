@@ -1,11 +1,11 @@
-# Draft Homebrew cask. Before publishing (in a tap, or homebrew/cask): set the version and fill
-# both sha256 values from SHA256SUMS.txt on the GitHub Release.
+# Homebrew cask, not yet published to a tap. On each release, set the version and both sha256
+# values from SHA256SUMS.txt on the GitHub Release.
 cask "centcom" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.1.0"
-  sha256 arm:   "REPLACE_WITH_ARM64_DMG_SHA256",
-         intel: "REPLACE_WITH_X64_DMG_SHA256"
+  version "1.0.0"
+  sha256 arm:   "c7ce3ee63e3896407231889ba20661a9fb305871b0f99b3a303c10f315f32504",
+         intel: "a10bd86a2819c0017f06b0b6b4b88b354df07a1d5074b9b85dd7acc7b8a0268b"
 
   url "https://github.com/elliottrjacobs/centcom/releases/download/v#{version}/CENTCOM-#{version}-#{arch}.dmg"
   name "CENTCOM"

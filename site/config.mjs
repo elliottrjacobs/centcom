@@ -10,8 +10,8 @@ export default {
 
   /** "CENTCOM: Agent HQ", Apple ID 6830979742. Set to 'https://apps.apple.com/app/id6830979742' on release. */
   appStore: null,
-  /** Set to 'https://github.com/elliottrjacobs/centcom/releases/latest' once a notarized build is released. */
-  macDownload: null,
+  /** The latest notarized Mac release (Apple silicon and Intel DMGs). */
+  macDownload: 'https://github.com/elliottrjacobs/centcom/releases/latest',
   /** Set to the install command once packaging/homebrew/centcom.rb is published, e.g. 'brew install --cask centcom'. */
   homebrew: null,
 };

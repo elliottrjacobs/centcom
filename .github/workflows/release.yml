@@ -51,7 +51,11 @@ jobs:
           APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checksums
-        run: cd release && shasum -a 256 *.dmg *.zip | tee SHA256SUMS.txt
+        run: |
+          cd release && shasum -a 256 *.dmg *.zip | tee SHA256SUMS.txt
+          gh release upload "$GITHUB_REF_NAME" SHA256SUMS.txt --clobber --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Remove the notarization key
         if: always()
         run: rm -f "$RUNNER_TEMP/notary.p8"
