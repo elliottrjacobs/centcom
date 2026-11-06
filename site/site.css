@@ -117,13 +117,6 @@ a {
   stroke-linejoin: round;
   color: var(--text-2);
 }
-.icon-lg {
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border-radius: var(--r-lg);
-  background: var(--bg-hover);
-}
 
 /* ── Header and footer ── */
 .wordmark {
@@ -276,7 +269,7 @@ a {
   background: var(--st-progress);
 }
 .text-link,
-.principle-grid a,
+.detail-more,
 .prose a,
 .not-found a {
   color: var(--text);
@@ -288,10 +281,13 @@ a {
 }
 @media (hover: hover) and (pointer: fine) {
   .text-link:hover,
-  .principle-grid a:hover,
+  .detail-card:hover .detail-more,
   .prose a:hover,
   .not-found a:hover {
     text-decoration-color: currentColor;
+  }
+  .detail-card:hover {
+    border-color: var(--border-strong);
   }
 }
 
@@ -512,14 +508,52 @@ a {
   color: var(--text-3);
 }
 .principles,
+.details,
 .connect,
 .get {
   padding: clamp(64px, 10vw, 112px) 0;
 }
 .principles .section-title,
+.details .section-title,
 .get .section-title {
   text-align: center;
   margin-bottom: var(--s-10);
+}
+.details {
+  border-top: 1px solid var(--border);
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+  max-width: 920px;
+  margin-inline: auto;
+}
+.detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-2);
+  padding: var(--s-6);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  background: var(--site-surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color var(--d-fast) ease;
+}
+.detail-card h3 {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 650;
+}
+.detail-card p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: var(--text-lg);
+}
+.detail-more {
+  margin-top: var(--s-2);
 }
 .principle-grid {
   display: grid;
@@ -600,12 +634,6 @@ a {
   color: var(--text-2);
   font-size: var(--text-lg);
 }
-.app-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 22.5%;
-  box-shadow: 0 0 0 1px var(--border);
-}
 .code-inline {
   align-self: stretch;
   padding: var(--s-3);
@@ -680,6 +708,7 @@ a {
 @media (max-width: 640px) {
   .code-grid,
   .get-grid,
+  .detail-grid,
   .get-card.get-card-wide {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -709,7 +738,8 @@ a {
     scroll-behavior: auto;
   }
   .button,
-  .site-nav a {
+  .site-nav a,
+  .detail-card {
     transition: none;
   }
   .button:active {

@@ -22,14 +22,14 @@ export const docPages = [
   {
     source: 'docs/SUPPORT.md',
     url: '/support/',
-    description: 'Help with CENTCOM: getting started, the iPhone and iPad app, bug reports and contact.',
+    description: 'Help with CENTCOM: getting started, the iPhone app, bug reports and contact.',
   },
 ];
 
 const home = {
   title: 'CENTCOM: a project tracker for you and your AI agents',
   description:
-    'CENTCOM is an open-source, self-hosted project and task tracker shared by people and their AI agents, with a Mac app, an iPhone and iPad app, a CLI and MCP, all over plain Markdown files.',
+    'CENTCOM is an open-source, self-hosted project and task tracker shared by people and their AI agents, with a Mac app, an iPhone app, a CLI and MCP, all over plain Markdown files.',
 };
 
 /** Files copied as they are: [source relative to the repo, destination relative to the site]. */
