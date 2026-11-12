@@ -33,6 +33,7 @@ export default defineConfig({
     alias: { '@shared': fileURLToPath(new URL('./shared', import.meta.url)) },
   },
   server: {
+    host: '127.0.0.1',
     port: 5179,
     strictPort: true,
     proxy: {
