@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Package the supplied glossy radar artwork without redrawing or recoloring it.
+ * Package the supplied brushed-metal radar artwork without redrawing or recoloring it.
  * Source: build/centcom-logo.jpg. Run: node scripts/make-icon.mjs
  * Requires macOS sips/iconutil and rsvg-convert (brew install librsvg).
  */
