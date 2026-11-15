@@ -60,7 +60,7 @@ describe('download links', () => {
     assert.match(both, /href="https:\/\/example.com\/dl"/);
     assert.match(both, /brew install --cask centcom/);
     assert.doesNotMatch(both, /Coming soon/);
-    assert.match(macActions({ macDownload: 'https://example.com/dl' }), /Homebrew cask coming soon/);
+    assert.doesNotMatch(macActions({ macDownload: 'https://example.com/dl' }), /Homebrew|coming soon/i);
   });
 
   it('requires the official App Store badge before linking the App Store', () => {
