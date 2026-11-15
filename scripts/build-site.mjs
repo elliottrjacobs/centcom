@@ -109,14 +109,16 @@ function nav(current, config) {
 
 const comingSoon = (text) => `<p class="soon">${escapeHtml(text)}</p>`;
 
-/** The Mac card's actions: a download button and the Homebrew command once each exists. */
+/**
+ * The Mac card's actions: a download button and the Homebrew command once each exists. Homebrew is
+ * an extra way to install, so it is left out until it exists rather than announced as coming soon.
+ */
 export function macActions(config) {
   const parts = [];
   if (config.macDownload) parts.push(`<a class="button button-primary" href="${escapeHtml(config.macDownload)}">Download for Mac</a>`);
   if (config.homebrew) parts.push(`<pre class="code-inline"><code>${escapeHtml(config.homebrew)}</code></pre>`);
   if (!config.macDownload && !config.homebrew) return comingSoon('Coming soon');
   if (!config.macDownload) parts.unshift(comingSoon('Download coming soon'));
-  if (!config.homebrew) parts.push(comingSoon('Homebrew cask coming soon'));
   return parts.join('\n        ');
 }
 

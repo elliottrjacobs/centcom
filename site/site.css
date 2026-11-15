@@ -1,7 +1,11 @@
 /*
- * CENTCOM website. Colors, spacing, radii, motion and fonts are the app's tokens (src/styles/tokens.css,
- * copied next to this file by scripts/build-site.mjs). This file adds only what a marketing page needs
- * on top: a larger type scale, page surfaces and layout.
+ * CENTCOM website. Spacing, radii, motion and fonts are the app's tokens (src/styles/tokens.css,
+ * copied next to this file by scripts/build-site.mjs). This file adds what a marketing page needs
+ * on top: a larger type scale, page surfaces and layout, and its own palette.
+ *
+ * The palette comes from the app icon rather than the app's navy accent: a matte charcoal tile,
+ * brushed-steel rings and sweep, and one warm ivory indicator light. Charcoal and steel carry the
+ * page; the ivory light is used sparingly, as a status lamp, never for text.
  */
 :root {
   --site-max: 1120px;
@@ -15,17 +19,85 @@
   --site-reading: 17px;
   --site-lede: clamp(17px, 2vw, 20px);
 
+  /* Icon primitives */
+  --icon-charcoal: #1c1c1d;
+  --icon-tile: #252526;
+  --icon-steel-hi: #e4e3e0;
+  --icon-steel: #b9b5b2;
+  --icon-steel-lo: #5f5f61;
+  --icon-lamp: #f0dec6;
+
+  /* Light: brushed aluminium, charcoal ink */
+  --bg-app: #ecebe8;
+  --bg-panel: #f6f5f3;
+  --bg-raised: #fbfaf8;
+  --bg-subtle: #efeeeb;
+  --bg-sunken: #e9e8e5;
+  --bg-hover: rgba(28, 28, 29, 0.05);
+  --border: rgba(28, 28, 29, 0.09);
+  --border-strong: rgba(28, 28, 29, 0.16);
+  --text: #1b1b1c;
+  --text-2: #5b5a58;
+  --text-3: #878683;
+  --text-on-accent: #f4f1ec;
+  --accent: #232324;
+  --accent-hover: #353537;
+  --accent-soft: rgba(28, 28, 29, 0.06);
+  --focus-ring: rgba(28, 28, 29, 0.5);
+
   --site-bg: var(--bg-panel);
   --site-surface: var(--bg-subtle);
-  --site-ink: var(--accent); /* accent used as text: readable on the page background */
-  --site-phone: #111114;
+  --site-ink: #5f5f61; /* steel used as text: readable on the page background */
+  --site-phone: #111112;
+  --site-ring: rgba(28, 28, 29, 0.07);
+  --site-sweep: rgba(28, 28, 29, 0.08);
+  --site-headline: linear-gradient(180deg, #2c2c2d 0%, #1b1b1c 55%, #444341 100%);
+  --site-primary: linear-gradient(180deg, #343436 0%, #1e1e1f 100%);
+  --site-primary-hover: linear-gradient(180deg, #414143 0%, #29292a 100%);
+  --site-primary-ink: #f4f1ec;
+  --site-primary-edge: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 1px 2px rgba(0, 0, 0, 0.28),
+    0 6px 16px -6px rgba(0, 0, 0, 0.35);
+  --site-knob: radial-gradient(circle at 50% 35%, #ffffff 0%, #f1f0ed 70%, #e8e7e4 100%);
+  --site-knob-edge: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --site-card-edge: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --site-lamp-well: #3a3a3b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --site-bg: var(--bg-app);
-    --site-surface: var(--bg-panel);
-    --site-ink: #9bb5d1;
+    /* Dark: the icon itself, a charcoal tile with steel on it */
+    --bg-app: #121213;
+    --bg-panel: #19191a;
+    --bg-raised: #232324;
+    --bg-subtle: #1e1e1f;
+    --bg-sunken: #141415;
+    --bg-hover: rgba(236, 233, 228, 0.06);
+    --border: rgba(236, 233, 228, 0.08);
+    --border-strong: rgba(236, 233, 228, 0.15);
+    --text: #edebe7;
+    --text-2: #a7a5a1;
+    --text-3: #75736f;
+    --text-on-accent: #161617;
+    --accent: #c9c6c2;
+    --accent-hover: #dddad6;
+    --accent-soft: rgba(236, 233, 228, 0.06);
+    --focus-ring: rgba(228, 227, 224, 0.6);
+
+    --site-bg: #161617;
+    --site-surface: #1d1d1e;
+    --site-ink: #bdb9b5;
+    --site-ring: rgba(228, 227, 224, 0.06);
+    --site-sweep: rgba(228, 227, 224, 0.09);
+    --site-headline: linear-gradient(180deg, #f7f6f3 0%, #e2e0dc 55%, #b3b0ac 100%);
+    --site-primary: linear-gradient(180deg, #ecebe8 0%, #c4c1bd 55%, #a9a6a2 100%);
+    --site-primary-hover: linear-gradient(180deg, #f6f5f3 0%, #d2cfcb 55%, #b7b4b0 100%);
+    --site-primary-ink: #161617;
+    --site-primary-edge: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 20px -8px rgba(0, 0, 0, 0.7);
+    --site-knob: radial-gradient(circle at 50% 35%, #333335 0%, #28282a 70%, #222223 100%);
+    --site-knob-edge: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 1px 3px rgba(0, 0, 0, 0.5);
+    --site-card-edge: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --site-lamp-well: #0e0e0f;
   }
 }
 
@@ -67,6 +139,10 @@ p {
 }
 a {
   color: inherit;
+}
+::selection {
+  background: color-mix(in srgb, var(--icon-lamp) 70%, transparent);
+  color: #1b1b1c;
 }
 :focus-visible {
   outline: 2px solid var(--focus-ring);
@@ -116,6 +192,19 @@ a {
   stroke-linecap: round;
   stroke-linejoin: round;
   color: var(--text-2);
+}
+.client-grid .icon,
+.principle-grid .icon {
+  box-sizing: content-box;
+  width: 22px;
+  height: 22px;
+  padding: 10px;
+  overflow: visible;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--site-knob);
+  box-shadow: var(--site-knob-edge);
+  color: var(--site-ink);
 }
 
 /* ── Header and footer ── */
@@ -239,16 +328,17 @@ a {
   transform: scale(0.97);
 }
 .button-primary {
-  background: var(--accent);
+  background: var(--site-primary);
   border-color: transparent;
-  color: var(--text-on-accent);
+  box-shadow: var(--site-primary-edge);
+  color: var(--site-primary-ink);
 }
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
     background: var(--bg-subtle);
   }
   .button-primary:hover {
-    background: var(--accent-hover);
+    background: var(--site-primary-hover);
   }
 }
 .eyebrow {
@@ -258,6 +348,25 @@ a {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+.hero .eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+/* The icon's indicator light: an ivory lamp in a dark well */
+.hero .eyebrow::before,
+.soon::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fffaf1 0%, var(--icon-lamp) 55%, #d9c3a3 100%);
+  box-shadow:
+    0 0 0 1.5px var(--site-lamp-well),
+    0 0 10px 1px color-mix(in srgb, var(--icon-lamp) 55%, transparent);
 }
 .soon {
   display: inline-flex;
@@ -270,13 +379,6 @@ a {
   color: var(--text-2);
   font-size: var(--text-md);
   font-weight: 500;
-}
-.soon::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--st-progress);
 }
 .text-link,
 .detail-more,
@@ -355,13 +457,41 @@ a {
   text-align: center;
   overflow: hidden;
 }
-.hero::before {
+/* The icon's radar: concentric steel rings and a sweep, fading out toward the edges */
+.hero::before,
+.hero::after {
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: 720px;
+  height: 760px;
   z-index: -1;
-  background: radial-gradient(56% 60% at 50% 0%, var(--accent-soft), transparent 72%);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(52% 78% at 50% 34%, #000 20%, transparent 78%);
+  mask-image: radial-gradient(52% 78% at 50% 34%, #000 20%, transparent 78%);
+}
+.hero::before {
+  background: repeating-radial-gradient(
+    circle at 50% 34%,
+    transparent 0 111px,
+    var(--site-ring) 111px 113px,
+    transparent 113px 140px
+  );
+}
+.hero::after {
+  /* The sweep's trailing side fades in; its leading edge is crisp, like the icon's wedge */
+  background: conic-gradient(
+    from 14deg at 50% 34%,
+    transparent 0deg,
+    var(--site-sweep) 48deg,
+    transparent 48.5deg 360deg
+  );
+}
+.hero h1 {
+  /* Brushed steel, repeated per line (the line height is 1.04) so every line gets the same sheen */
+  background: var(--site-headline) 0 0 / 100% 1.04em repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero h1 {
   max-width: 14em;
@@ -551,6 +681,7 @@ a {
   color: var(--text);
   text-decoration: none;
   transition: border-color var(--d-fast) ease;
+  box-shadow: var(--site-card-edge);
 }
 .detail-card h3 {
   margin: 0;
@@ -575,6 +706,7 @@ a {
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   background: var(--site-surface);
+  box-shadow: var(--site-card-edge);
 }
 .connect {
   background: var(--site-surface);
@@ -633,6 +765,7 @@ a {
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   background: var(--site-surface);
+  box-shadow: var(--site-card-edge);
 }
 .get-card h3 {
   margin: var(--s-1) 0 0;
